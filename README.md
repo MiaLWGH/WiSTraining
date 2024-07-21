@@ -1,6 +1,7 @@
 # WiS - Introduction to IT - LAB
 ### Step 1: Getting Started with the AWS Management Console (15 min)
-Please follow the instrustions in tutorial:
+First of all, let's get familiar with AWS management console.
+Please follow the instrustions in below tutorial:
 
 https://aws.amazon.com/getting-started/hands-on/getting-started-with-aws-management-console/?ref=gsrchandson
 
@@ -14,28 +15,50 @@ https://aws.amazon.com/getting-started/hands-on/getting-started-with-aws-managem
 ### Step 3: Launch an EC2 instance (20 min)
 ![EC2](https://docs.aws.amazon.com/images/AWSEC2/latest/UserGuide/images/get-started-diagram.png)
 
-1. Launch and clean up a Windows instance from console: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
-2. Launch and clean up a Linux instance from console: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
+1. Launch a Windows instance from console: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
+2. Launch a Linux instance from console: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
+
+![Instance lifecycle](https://docs.aws.amazon.com/images/AWSEC2/latest/UserGuide/images/instance_lifecycle.png)
+
+3. Stop, start and reboot your Windows and Linux instance respectively: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html
+4. Connect to your Windows instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connecting_to_windows_instance.html
+5. Connect to your Linux instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-to-linux-instance.html
+6. Terminate both instances: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html
 
 ### Step 4: Launch an EC2 instance from AWS Systems Manager (20 min)
-Please follow the instructions in tutorial:
+There are many approaches to launch an EC2 instance. In this step, you will launch an EC2 instance from AWS Systems Manager. 
+Please follow the instructions in below tutorial:
 
 https://aws.amazon.com/getting-started/hands-on/remotely-run-commands-ec2-instance-systems-manager/?ref=gsrchandson&id=itprohandson
 
-### Step 5: Connect to your EC2 instance (30 min)
-
-1. Launch and connect to a Windows instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connecting_to_windows_instance.html
-2. Launch and connect to a Linux instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-to-linux-instance.html
-
-### Step 6: Instance lifecycle
-![Instance lifecycle](https://docs.aws.amazon.com/images/AWSEC2/latest/UserGuide/images/instance_lifecycle.png)
-
-https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html
-
-### Step 7: Linux basics
+### Step 5: Linux basics
+In this step, let's learn some basic Linux commands
 
 1. Check resouce
+
 2. File system
+
+(1) Using the command line, create a new file called `lunch` using the command `touch lunch`.
+Optionally, you can verify that this file has been created by using the command `ls` to list all the files in the current directory.
+
+(2) Write a list of foods such as `burger, salad, and sandwich` to the `lunch` file using the following command:
+`echo "burger, salad, and sandwich" > lunch`
+Optionally, you can verify this by reading the file using the command `cat lunch`.
+
+(3) Delete the `lunch` file using the command `rm lunch`.
+
+(4) Using the command line, create a new directory called `dinner` using the command `mkdir dinner`.
+Verify that this new directory has been created using the command `ls` to list all the files in the current directory.
+
+(5) Create 2 more directories within the `dinner` folder using the command:
+`mkdir dinner/entree dinner/dessert`
+Verify the beginnings of this hierarchical tree structure using the `ls -R` command.
+
+(6) Create a variety of files within these new folders using the command:
+`touch dinner/entree/turkey dinner/entree/fish dinner/dessert/cake dinner/dessert/pudding`
+Verify the full hierarchical tree structure using the `ls -R` command.
+
+(7) Delete the dinner directory using the command `rm -r dinner`.
 
 ### Step 8: Hello World webserver
 
