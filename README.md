@@ -1,4 +1,5 @@
 # WiS - Introduction to IT - LAB
+## Part 1 - EC2
 ### Step 1: Getting Started with the AWS Management Console (15 min)
 First of all, let's get familiar with AWS management console.
 Please follow the instrustions in below tutorial:
@@ -12,7 +13,7 @@ https://aws.amazon.com/getting-started/hands-on/getting-started-with-aws-managem
 2. Create a key pair using console: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html
 3. View your key pair in console: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/describe-keys.html
 
-### Step 3: Launch an EC2 instance (20 min)
+### Step 3: Launch an EC2 instance (40 min)
 ![EC2](https://docs.aws.amazon.com/images/AWSEC2/latest/UserGuide/images/get-started-diagram.png)
 
 1. Launch a Windows instance from console: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
@@ -31,12 +32,26 @@ Please follow the instructions in below tutorial:
 
 https://aws.amazon.com/getting-started/hands-on/remotely-run-commands-ec2-instance-systems-manager/?ref=gsrchandson&id=itprohandson
 
-### Step 5: Linux basics
-In this step, let's learn some basic Linux commands
+### Step 5: Linux basics (15 min)
+In this step, let's learn some basic Linux commands. 
 
-1. Check resouce
+0. Launch a Linux instance from console. 
 
-2. File system
+1. Collect system and hardward information
+
+(1) Print system information using the command `uname`. Try `uname -s`, `uname -n`, `uname -v`, `uname -r`, `uname -m` and `uname -a`. 
+
+(2) Gather vast information about your hardward components using command `sudo lshw`. To print a summary of your hardware infomration, run `sudo lshw -short`. 
+
+(3) Show information about your CPU architecture using command `lscpu`. 
+
+(4) Print block devices by their assigned name using command `lsblk`. 
+
+(5) Print memory usage by using `free`. 
+
+(6) Print disk usage by using `df -h`. 
+
+3. File system
 
 (1) Using the command line, create a new file called `lunch` using the command `touch lunch`.
 Optionally, you can verify that this file has been created by using the command `ls` to list all the files in the current directory.
@@ -60,5 +75,11 @@ Verify the full hierarchical tree structure using the `ls -R` command.
 
 (7) Delete the dinner directory using the command `rm -r dinner`.
 
-### Step 8: Hello World webserver
+### Step 6: Hello World webserver (30 min)
+Now, let's make the EC2 instance that you played with in Step 5 into a simple Hello World webserver. 
+The following blog shows how to build the webserver from scratch:
+
+https://medium.com/@rj03012002/deploy-your-first-hello-world-application-on-aws-ec2-instance-e474028964a9
+
+Could you please try to make it work on the running instance?
 
