@@ -22,8 +22,8 @@ https://aws.amazon.com/getting-started/hands-on/getting-started-with-aws-managem
 ![Instance lifecycle](https://docs.aws.amazon.com/images/AWSEC2/latest/UserGuide/images/instance_lifecycle.png)
 
 3. Stop, start and reboot your Windows and Linux instance respectively: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html
-4. Connect to your Windows instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connecting_to_windows_instance.html
-5. Connect to your Linux instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-to-linux-instance.html
+4. Connect to your Windows instance and upload a file to the instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connecting_to_windows_instance.html
+5. Connect to your Linux instance and upload a file to the instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-to-linux-instance.html
 6. Terminate both instances: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html
 
 ### Step 4: Launch an EC2 instance from AWS Systems Manager (20 min)
