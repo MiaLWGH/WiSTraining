@@ -83,3 +83,6 @@ https://medium.com/@rj03012002/deploy-your-first-hello-world-application-on-aws-
 
 Could you please try to make it work on the running instance?
 
+## Part 2 - Networking
+### Step 1: Create a VPC with one public subnet and one private subnet
+
