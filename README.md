@@ -84,5 +84,17 @@ https://medium.com/@rj03012002/deploy-your-first-hello-world-application-on-aws-
 Could you please try to make it work on the running instance?
 
 ## Part 2 - Networking
+![VPC](https://d1.awsstatic.com/getting-started-guides/vpc-with-nat.7ad78b23ba91be288afdf8a0d836820add439d44.png)
 ### Step 1: Create a VPC with one public subnet and one private subnet
+
+### Step 2: Create two security groups
+
+### Step 3: Launch an EC2 instance in each subnet
+
+### Step 4: Collect network information and test reachability
+
+### Step 5: Add an Internet Gateway
+
+### Step 6: Add a NAT Gateway
+
 
