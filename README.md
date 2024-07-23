@@ -23,18 +23,22 @@ To connect to an EC2 instance, you need a key pair. In this step, you will use E
    ```
 
 ### Step 3: Launch an EC2 instance (40 min)
-Now, we are ready to launch our first EC2 instance. In this step, you will explore 
+Now, you are ready to launch your first EC2 instance. In this step, you will explore the lifecycle of each EC2 instance and try to connect to it. You will practice with both Windows and Linux instances.
 ![EC2](https://docs.aws.amazon.com/images/AWSEC2/latest/UserGuide/images/get-started-diagram.png)
-
-1. Launch a Windows instance from console: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
-2. Launch a Linux instance from console: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
 
 ![Instance lifecycle](https://docs.aws.amazon.com/images/AWSEC2/latest/UserGuide/images/instance_lifecycle.png)
 
-3. Stop, start and reboot your Windows and Linux instance respectively: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html
-4. Connect to your Windows instance and upload a file to the instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connecting_to_windows_instance.html
-5. Connect to your Linux instance and upload a file to the instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-to-linux-instance.html
-6. Terminate both instances: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html
+* Windows:
+1. Launch a Windows instance from console: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
+2. Connect to your Windows instance and upload a file to the instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connecting_to_windows_instance.html
+3. Stop, Start and reboot your Windows instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html
+4. Terminate your Windows instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html
+
+* Linux:
+1. Launch a Linux instance from console: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
+2. Connect to your Linux instance and upload a file to the instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-to-linux-instance.html
+3. Stop, Start and reboot your Linux instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html
+4. Terminate your Linux instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html
 
 ### Step 4: Launch an EC2 instance from AWS Systems Manager (20 min)
 There are many approaches to launch an EC2 instance. In this step, you will launch an EC2 instance from AWS Systems Manager. 
