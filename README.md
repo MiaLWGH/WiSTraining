@@ -7,13 +7,23 @@ Please follow the instrustions in below tutorial:
 https://aws.amazon.com/getting-started/hands-on/getting-started-with-aws-management-console/?ref=gsrchandson
 
 ### Step 2: EC2 key pairs (30 min)
+To connect to an EC2 instance, you need a key pair. In this step, you will use EC2 console to create a key pair. 
 ![EC2 key pair](https://docs.aws.amazon.com/images/AWSEC2/latest/UserGuide/images/ec2-key-pair.png)
 
-1. Read: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html
-2. Create a key pair using console: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html
-3. View your key pair in console: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/describe-keys.html
+1. Read this documentation to understand EC2 key pairs: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html
+2. Create a key pair using EC2 console. Please following the steps in "Create a key pair using Amazon EC2": https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html
+
+   Note:
+   - Step 5: Choose RSA as key pair type
+   - Step 6: Choose .pem for key file format
+   - Step 10: For macOS computer only. You need to run the command in Terminal. If you use Windows, skip this step.
+3. You shall be able to view your key pairs in your EC2 console. Open CloudShell and type in the following command to describe your key pairs:
+   ```
+   aws ec2 describe-key-pairs
+   ```
 
 ### Step 3: Launch an EC2 instance (40 min)
+Now, we are ready to launch our first EC2 instance. In this step, you will explore 
 ![EC2](https://docs.aws.amazon.com/images/AWSEC2/latest/UserGuide/images/get-started-diagram.png)
 
 1. Launch a Windows instance from console: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
