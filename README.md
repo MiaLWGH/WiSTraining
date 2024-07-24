@@ -138,7 +138,7 @@ https://aws.amazon.com/getting-started/hands-on/remotely-run-commands-ec2-instan
 ### Step 5: Linux basics
 In this step, let's learn some basic Linux commands. 
 
-1. Launch a Linux instance from console. 
+1. Launch a Linux instance from console and connect to it. 
 
 2. Collect system and hardward information
 
