@@ -154,27 +154,46 @@ In this step, let's learn some basic Linux commands.
 
 3. File system
 
-(1) Using the command line, create a new file called `lunch` using the command `touch lunch`.
-Optionally, you can verify that this file has been created by using the command `ls` to list all the files in the current directory.
+(1) Print the current working directory using the command `pwd`.
 
-(2) Write a list of foods such as `burger, salad, and sandwich` to the `lunch` file using the following command:
-`echo "burger, salad, and sandwich" > lunch`
-Optionally, you can verify this by reading the file using the command `cat lunch`.
+(2) Create a new file called "lunch" using the command `touch lunch`. 
 
-(3) Delete the `lunch` file using the command `rm lunch`.
+(3) Verify this file has been created by using the command `ls` to list all the files in the current directory.
 
-(4) Using the command line, create a new directory called `dinner` using the command `mkdir dinner`.
-Verify that this new directory has been created using the command `ls` to list all the files in the current directory.
+(4) Write a list of foods such as "burger, salad, and sandwich" to the "lunch" file using the following command:
+```
+echo "burger, salad, and sandwich" > lunch
+```
+(5) Verify this by reading the file using the command `cat lunch`.
 
-(5) Create 2 more directories within the `dinner` folder using the command:
-`mkdir dinner/entree dinner/dessert`
+(6) Delete the "lunch" file using the command `rm lunch`.
+
+(7) Create a new directory called "dinner" using the command `mkdir dinner`. Verify this new directory has been created using the command `ls` to list all the files in the current directory.
+
+(8) Create 2 more directories within the "dinner" folder using the command:
+```
+mkdir dinner/entree dinner/dessert
+```
 Verify the beginnings of this hierarchical tree structure using the `ls -R` command.
 
-(6) Create a variety of files within these new folders using the command:
-`touch dinner/entree/turkey dinner/entree/fish dinner/dessert/cake dinner/dessert/pudding`
+(9) Create a variety of files within these new folders using the command:
+```
+touch dinner/entree/turkey dinner/entree/fish dinner/dessert/cake dinner/dessert/pudding
+```
 Verify the full hierarchical tree structure using the `ls -R` command.
 
-(7) Delete the dinner directory using the command `rm -r dinner`.
+(10) Navigate into directory "dinner" using the command `cd dinnner`. Run `ls` to check the directories. Then, navigate into directory "dessert". 
+
+(11) Create a new file named "icecream" using command `nano icecream`. Please note that 'nano' is a user-friendly file editor. The command will open up a space where you can immediately start typing to edit file "icecream". Add whatever text you like. To save your written text, press `CTRL + X`, `Y`, and then `ENTER`. This returns you to the shell with a newly saved "icecream" file. Verify the file content using the command `cat icecream`. 
+
+(12) Copy file "icecream" to the "~/dinner/entree/" directory using the command:
+```
+cp icecream ~/dinner/entree/icecream
+```
+
+(13) Navigate to previous directory using the command `cd ..`. Optionally, you can go back to home directory using the command `cd` or `cd ~`. Verify the file "icecream" is copied to directory "entree" using the command `ls -R`. 
+
+(14) Delete the dinner directory using the command `rm -r dinner`.
 
 ### Step 6: Hello World webserver (30 min)
 Now, let's make the EC2 instance that you played with in Step 5 into a simple Hello World webserver. 
