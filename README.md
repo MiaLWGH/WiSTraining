@@ -249,6 +249,9 @@ https://medium.com/@rj03012002/deploy-your-first-hello-world-application-on-aws-
 
 ## Part 2 - Networking
 ![VPC](https://d1.awsstatic.com/getting-started-guides/vpc-with-nat.7ad78b23ba91be288afdf8a0d836820add439d44.png)
+
+In this part of the lab, we are going to create a new VPC with one public subnet and one private subnet, and launch EC2 instances in each subnet as shown in above image. You will learn how to add Internet Gateway and NAT Gateway to your VPC, and get familiar with some useful networking commands. We only use Linux instances in this lab. 
+
 ### Step 1: Create a VPC with one public subnet and one private subnet
 
 ### Step 2: Create two security groups
