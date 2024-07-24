@@ -68,7 +68,7 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
    https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html
 
    Questions:
-   - After stopping and starting, can you still connect to the instance? Do you know why? How to reconnect?
+   - After stop and start operations, can you still connect to the instance? Do you know why? How to reconnect?
       - Hint: pay attention to the "Public IPv4 DNS".
    - Do you know how to reboot the instance? After that, can you connect to the instance?
    
@@ -95,7 +95,7 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
    - Security groups
    - Root device type
    
-3. Connect to your Linux instance. 
+2. Connect to your Linux instance. 
 
    Read through the following documentation and make sure to set the permissions of your private key correctly:
    
@@ -115,9 +115,12 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
    Note:
    - Follow section "Connect to your Linux instance from Windows with OpenSSH"
 
-6. Stop, Start and reboot your Linux instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html
-7. Terminate your Linux instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html
+3. Reboot, Stop and Start your Linux instance.
 
+   Question: After stop and start operations, can you reconnect to it?
+
+4. Terminate your Linux instance.
+   
 ### Step 4: Launch an EC2 instance from AWS Systems Manager (20 min)
 There are many approaches to launch an EC2 instance. In this step, you will launch an EC2 instance from AWS Systems Manager. 
 Please follow the instructions in below tutorial:
