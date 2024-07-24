@@ -8,31 +8,68 @@ https://aws.amazon.com/getting-started/hands-on/getting-started-with-aws-managem
 
 ### Step 2: EC2 key pairs (30 min)
 To connect to an EC2 instance, you need a key pair. In this step, you will use EC2 console to create a key pair. 
+
 ![EC2 key pair](https://docs.aws.amazon.com/images/AWSEC2/latest/UserGuide/images/ec2-key-pair.png)
 
 1. Read this documentation to understand EC2 key pairs: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html
-2. Create a key pair using EC2 console. Please following the steps in "Create a key pair using Amazon EC2": https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html
+2. Create a key pair using EC2 console. Please following the steps in "Create a key pair using Amazon EC2": 
 
    Note:
    - Step 5: Choose RSA as key pair type
    - Step 6: Choose .pem for key file format
    - Step 10: For macOS computer only. You need to run the command in Terminal. If you use Windows, skip this step.
+
+   https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html
+  
 3. You shall be able to view your key pairs in your EC2 console. Open CloudShell and type in the following command to describe your key pairs:
    ```
    aws ec2 describe-key-pairs
    ```
 
 ### Step 3: Launch an EC2 instance (40 min)
-Now, you are ready to launch your first EC2 instance. In this step, you will explore the lifecycle of each EC2 instance and try to connect to it. You will practice with both Windows and Linux instances.
+Now, you are ready to launch your first EC2 instance. In this step, you will explore the lifecycle of an EC2 instance and try to connect to it. You will practice with both Windows and Linux instances.
+
 ![EC2](https://docs.aws.amazon.com/images/AWSEC2/latest/UserGuide/images/get-started-diagram.png)
 
 ![Instance lifecycle](https://docs.aws.amazon.com/images/AWSEC2/latest/UserGuide/images/instance_lifecycle.png)
 
 * Windows:
-1. Launch a Windows instance from console: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
-2. Connect to your Windows instance and upload a file to the instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connecting_to_windows_instance.html
-3. Stop, Start and reboot your Windows instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html
-4. Terminate your Windows instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html
+1. Launch a Windows instance from console. Please follow the steps in "Step 1: Launch an instance":
+
+   Note:
+   - Step 5: Choose Windows under Quick Start
+   - Step 7: Choose your key
+   - Step 8: Keep all default settings
+   - The launching may take a few minutes. Wait unitl Status Check shows it passed both checks. 
+
+   https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
+
+   When the instance is ready, can you find the following information?
+   - Instance ID
+   - Public IPv4 DNS
+   - Instance state
+   - Instance type
+   - AMI ID
+   - AMI Name
+   - Security groups
+   - Root device type
+
+3. Connect to your Windows instance:
+
+   Note:
+   - Please finish all steps in "Prerequisites". For macOS, you can find Microsoft Remote Desktop in Amazon's Self Service.
+   - Security group allows traffic from 0.0.0.0/0 for port 3389 if you use default network settings.
+   - Follow the steps in "Connect to a Windows instance using RDP and its IPv4 address"
+
+   https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-rdp.html
+
+4. Stop, Start and reboot your Windows instance. Please follow the steps in "Manually stop and start your instances":
+   
+   https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html
+
+   Question: When the instance is stopped, can you still connect to it?
+   
+11. Terminate your Windows instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html
 
 * Linux:
 1. Launch a Linux instance from console: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
