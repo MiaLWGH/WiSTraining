@@ -195,6 +195,12 @@ cp icecream ~/dinner/entree/icecream
 
 (14) Delete the dinner directory using the command `rm -r dinner`.
 
+Some good Linux references for beginners:
+
+[1] https://ubuntu.com/tutorials/command-line-for-beginners#8-hidden-files
+
+[2] https://www.digitalocean.com/community/tutorials/an-introduction-to-linux-basics#the-filesystem-hierarchy-standard
+
 ### Step 6: Hello World webserver (30 min)
 Now, let's make the EC2 instance that you played with in Step 5 into a simple Hello World webserver. 
 The following blog shows how to build the webserver from scratch:
