@@ -123,18 +123,24 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
 
 5. Terminate your Linux instance.
    
-### Step 4: Launch an EC2 instance from AWS Systems Manager (20 min)
-There are many approaches to launch an EC2 instance. In this step, you will launch an EC2 instance from AWS Systems Manager. 
+### Step 4: Launch an EC2 instance from AWS Systems Manager
+There are many approaches to launch an EC2 instance and work on it. In this step, you will launch an EC2 instance from AWS Systems Manager. 
 Please follow the instructions in below tutorial:
+
+Note: 
+- Step 4.e: Use following command:
+```
+sudo yum -y update
+```
 
 https://aws.amazon.com/getting-started/hands-on/remotely-run-commands-ec2-instance-systems-manager/?ref=gsrchandson&id=itprohandson
 
-### Step 5: Linux basics (15 min)
+### Step 5: Linux basics
 In this step, let's learn some basic Linux commands. 
 
-0. Launch a Linux instance from console. 
+1. Launch a Linux instance from console. 
 
-1. Collect system and hardward information
+2. Collect system and hardward information
 
 (1) Print system information using the command `uname`. Try `uname -s`, `uname -n`, `uname -v`, `uname -r`, `uname -m` and `uname -a`. 
 
