@@ -44,7 +44,7 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
 
    https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
 
-   When the instance is ready, can you find the following information?
+   When the instance is ready, can you find the following information? You can take a note of them. 
    - Instance ID
    - Public IPv4 DNS
    - Instance state
@@ -54,7 +54,7 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
    - Security groups
    - Root device type
 
-3. Connect to your Windows instance:
+2. Connect to your Windows instance:
 
    Note:
    - Please finish all steps in "Prerequisites". For macOS, you can find Microsoft Remote Desktop in Amazon's Self Service.
@@ -63,13 +63,16 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
 
    https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-rdp.html
 
-4. Stop, Start and reboot your Windows instance. Please follow the steps in "Manually stop and start your instances":
+3. Stop, Start and Reboot your Windows instance. Please follow the steps in "Manually stop and start your instances":
    
    https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html
 
-   Question: When the instance is stopped, can you still connect to it?
+   Questions:
+   - After stopping and starting, can you still connect to the instance? Do you know why? How to reconnect?
+      - Hint: pay attention to the "Public IPv4 DNS".
+   - Do you know how to reboot the instance? After that, can you connect to the instance?
    
-11. Terminate your Windows instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html
+4. Terminate your Windows instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html
 
 * Linux:
 1. Launch a Linux instance from console: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
