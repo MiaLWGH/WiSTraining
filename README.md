@@ -253,6 +253,12 @@ https://medium.com/@rj03012002/deploy-your-first-hello-world-application-on-aws-
 In this part of the lab, we are going to create a new VPC with one public subnet and one private subnet, and launch EC2 instances in each subnet as shown in above image. You will learn how to add Internet Gateway and NAT Gateway to your VPC, and get familiar with some useful networking commands. We only use Linux instances in this lab. 
 
 ### Step 1: Create a VPC with one public subnet and one private subnet
+Let's create a VPC first. Please follow the steps in "1. Create the VPC":
+
+Note:
+- step 5c: For Number of private subnets, choose 1.
+
+https://docs.aws.amazon.com/vpc/latest/userguide/vpc-example-dev-test.html
 
 ### Step 2: Create two security groups
 
