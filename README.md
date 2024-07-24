@@ -1,12 +1,12 @@
 # WiS - Introduction to IT - LAB
 ## Part 1 - EC2
-### Step 1: Getting Started with the AWS Management Console (15 min)
+### Step 1: Getting Started with the AWS Management Console 
 First of all, let's get familiar with AWS management console.
 Please follow the instrustions in below tutorial:
 
 https://aws.amazon.com/getting-started/hands-on/getting-started-with-aws-management-console/?ref=gsrchandson
 
-### Step 2: EC2 key pairs (30 min)
+### Step 2: EC2 key pairs 
 To connect to an EC2 instance, you need a key pair. In this step, you will use EC2 console to create a key pair. 
 
 ![EC2 key pair](https://docs.aws.amazon.com/images/AWSEC2/latest/UserGuide/images/ec2-key-pair.png)
@@ -26,14 +26,14 @@ To connect to an EC2 instance, you need a key pair. In this step, you will use E
    aws ec2 describe-key-pairs
    ```
 
-### Step 3: Launch an EC2 instance (40 min)
+### Step 3: Launch an EC2 instance 
 Now, you are ready to launch your first EC2 instance. In this step, you will explore the lifecycle of an EC2 instance and try to connect to it. You will practice with both Windows and Linux instances.
 
 ![EC2](https://docs.aws.amazon.com/images/AWSEC2/latest/UserGuide/images/get-started-diagram.png)
 
 ![Instance lifecycle](https://docs.aws.amazon.com/images/AWSEC2/latest/UserGuide/images/instance_lifecycle.png)
 
-* Windows:
+#### Windows:
 1. Launch a Windows instance from console. Please follow the steps in "Step 1: Launch an instance":
 
    Note:
@@ -74,11 +74,49 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
    
 4. Terminate your Windows instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html
 
-* Linux:
-1. Launch a Linux instance from console: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
-2. Connect to your Linux instance and upload a file to the instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-to-linux-instance.html
-3. Stop, Start and reboot your Linux instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html
-4. Terminate your Linux instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html
+#### Linux:
+1. Launch a Linux instance from console. Please follow the steps in "Step 1: Launch an instance":
+
+   Note:
+   - Step 5: Choose Amazon Linux under Quick Start
+   - Step 7: Choose your key
+   - Step 8: Keep all default settings
+   - The launching may take a few minutes. Wait unitl Status Check shows it passed both checks. 
+
+   https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
+
+   When the instance is ready, can you find the following information? You can take a note of them. 
+   - Instance ID
+   - Public IPv4 DNS
+   - Instance state
+   - Instance type
+   - AMI ID
+   - AMI Name
+   - Security groups
+   - Root device type
+   
+3. Connect to your Linux instance. 
+
+   Read through the following documentation and make sure to set the permissions of your private key correctly:
+   
+   https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-to-linux-instance.html
+
+   For macOS user:
+
+   https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-linux-inst-ssh.html
+
+   Note:
+   - Tranferring file using scp command is optional. 
+
+   For Windows user:
+
+   https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-linux-inst-from-windows.html
+
+   Note:
+   - Follow section "Connect to your Linux instance from Windows with OpenSSH"
+
+6. Stop, Start and reboot your Linux instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html
+7. Terminate your Linux instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html
 
 ### Step 4: Launch an EC2 instance from AWS Systems Manager (20 min)
 There are many approaches to launch an EC2 instance. In this step, you will launch an EC2 instance from AWS Systems Manager. 
