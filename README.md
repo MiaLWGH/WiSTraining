@@ -244,6 +244,9 @@ Reference:
 
 https://medium.com/@rj03012002/deploy-your-first-hello-world-application-on-aws-ec2-instance-e474028964a9
 
+> [!NOTE]
+> After you finish all above steps, please terminate your instance!
+
 ## Part 2 - Networking
 ![VPC](https://d1.awsstatic.com/getting-started-guides/vpc-with-nat.7ad78b23ba91be288afdf8a0d836820add439d44.png)
 ### Step 1: Create a VPC with one public subnet and one private subnet
