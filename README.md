@@ -184,7 +184,7 @@ Verify the full hierarchical tree structure using the `ls -R` command.
 
 (10) Navigate into directory "dinner" using the command `cd dinnner`. Run `ls` to check the directories. Then, navigate into directory "dessert". 
 
-(11) Create a new file named "icecream" using command `nano icecream`. Please note that 'nano' is a user-friendly file editor. The command will open up a space where you can immediately start typing to edit file "icecream". Add whatever text you like. To save your written text, press `CTRL + X`, `Y`, and then `ENTER`. This returns you to the shell with a newly saved "icecream" file. Verify the file content using the command `cat icecream`. 
+(11) Create a new file named "icecream" using command `nano icecream`. Please note that 'nano' is a user-friendly file editor. The command will open up a space where you can immediately start typing to edit file "icecream". Add whatever text you like. To save your written text, press 'CTRL + X', 'Y', and then 'ENTER'. This returns you to the shell with a newly saved "icecream" file. Verify the file content using the command `cat icecream`. 
 
 (12) Copy file "icecream" to the "~/dinner/entree/" directory using the command:
 ```
@@ -203,11 +203,46 @@ Some good Linux references for beginners:
 
 ### Step 6: Hello World webserver (30 min)
 Now, let's make the EC2 instance that you played with in Step 5 into a simple Hello World webserver. 
-The following blog shows how to build the webserver from scratch:
+
+1. We are using an Apache server in this tutorial so for that we need to install httpd to run apache server. 'httpd' is Produced by Apache Foundation and it is a piece of software that listens for network requests and responds to them. Run the following commands on your instance:
+```
+sudo su
+yum update -y
+yum install httpd -y
+```
+
+2. Start and enable the httpd service:
+```
+systemctl start httpd
+systemctl enable httpd
+```
+
+3. This command will create a directory /var/www/html. It is the default root folder of the web server. Before creating our HTML file first we need to change the ownership of this folder:
+```
+chown -R $USER /var/www/html
+```
+
+4. Now enter your content in /var/www/html/index.html:
+```
+echo "<h1>Hello World</h1>" > /var/www/html/index.html
+```
+
+5. Go back to EC2 console and find the security group of your instance.
+   - Click on the security group ID, which will lead you to the security group details page.
+   - Click on button 'Edit inbound rules'.
+   - Click on button 'Add rule'.
+   - Choose 'HTTP' for 'Type', 'Anywhere-IPv4' or 'My IP' for 'Source'.
+   - Click 'Save rules'. 
+
+6. Copy the 'Public IPv4 DNS' of your instance, and type `http://Public-IPv4-DNS-of-your-instance` in your broswer. You shall be able to see:
+
+![example](https://miro.medium.com/v2/resize:fit:720/format:webp/1*XMqthWuw1aEaw332XPmpXQ.png)
+
+Congratulations! You have deployed your first hello world web server on your EC2 instance!
+
+Reference:
 
 https://medium.com/@rj03012002/deploy-your-first-hello-world-application-on-aws-ec2-instance-e474028964a9
-
-Could you please try to make it work on the running instance?
 
 ## Part 2 - Networking
 ![VPC](https://d1.awsstatic.com/getting-started-guides/vpc-with-nat.7ad78b23ba91be288afdf8a0d836820add439d44.png)
