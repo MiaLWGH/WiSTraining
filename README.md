@@ -142,11 +142,9 @@ In this step, let's learn some basic Linux commands.
 
 2. Collect system and hardward information
 
-(1) Print system information using the command `uname`. Try `uname -s`, `uname -n`, `uname -v`, `uname -r`, `uname -m` and `uname -a`. 
+(1) Print system information using the command `uname`. View your network hostname using `uname -n`.
 
-(2) Gather vast information about your hardward components using command `sudo lshw`. To print a summary of your hardware infomration, run `sudo lshw -short`. 
-
-(3) Show information about your CPU architecture using command `lscpu`. 
+(2) Show information about your CPU architecture using command `lscpu`. 
 
 (4) Print block devices by their assigned name using command `lsblk`. 
 
