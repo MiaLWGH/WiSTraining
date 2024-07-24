@@ -227,7 +227,7 @@ chown -R $USER /var/www/html
 echo "<h1>Hello World</h1>" > /var/www/html/index.html
 ```
 
-5. Go back to EC2 console and find the security group of your instance.
+5. Next, we need to make a change to the security group to allow the HTTP traffic from your laptop to go to the instance via port 80. Go back to EC2 console and find the security group of your instance.
    - Click on the security group ID, which will lead you to the security group details page.
    - Click on button 'Edit inbound rules'.
    - Click on button 'Add rule'.
@@ -236,7 +236,7 @@ echo "<h1>Hello World</h1>" > /var/www/html/index.html
 
 6. Copy the 'Public IPv4 DNS' of your instance, and type `http://Public-IPv4-DNS-of-your-instance` in your broswer. You shall be able to see:
 
-![example](https://miro.medium.com/v2/resize:fit:720/format:webp/1*XMqthWuw1aEaw332XPmpXQ.png)
+![example](https://github.com/MiaLWGH/WiSTraining/blob/main/Screenshot1.png?raw=true)
 
 Congratulations! You have deployed your first hello world web server on your EC2 instance!
 
