@@ -142,58 +142,58 @@ In this step, let's learn some basic Linux commands.
 
 2. Collect system and hardward information:
 
-(1) Print system information using the command `uname`. View your network hostname using `uname -n`.
+   (1) Print system information using the command `uname`. View your network hostname using `uname -n`.
 
-(2) Print your username using the command `whoami`. 
+   (2) Print your username using the command `whoami`. 
 
-(3) Show information about your CPU architecture using command `lscpu`. 
+   (3) Show information about your CPU architecture using command `lscpu`. 
 
-(4) Print memory usage by using `free`. 
+   (4) Print memory usage by using `free`. 
 
-(5) Print disk usage by using `df -h`. 
+   (5) Print disk usage by using `df -h`. 
 
 3. File system
 
-(1) Print the current working directory using the command `pwd`.
+   (1) Print the current working directory using the command `pwd`.
 
-(2) Create a new file called "lunch" using the command `touch lunch`. 
+   (2) Create a new file called "lunch" using the command `touch lunch`. 
 
-(3) Verify this file has been created by using the command `ls` to list all the files in the current directory.
+   (3) Verify this file has been created by using the command `ls` to list all the files in the current directory.
 
-(4) Write a list of foods such as "burger, salad, and sandwich" to the "lunch" file using the following command:
-```
-echo "burger, salad, and sandwich" > lunch
-```
-(5) Verify this by reading the file using the command `cat lunch`.
+   (4) Write a list of foods such as "burger, salad, and sandwich" to the "lunch" file using the following command:
+   ```
+   echo "burger, salad, and sandwich" > lunch
+   ```
+   (5) Verify this by reading the file using the command `cat lunch`.
 
-(6) Delete the "lunch" file using the command `rm lunch`.
+   (6) Delete the "lunch" file using the command `rm lunch`.
 
-(7) Create a new directory called "dinner" using the command `mkdir dinner`. Verify this new directory has been created using the command `ls` to list all the files in the current directory.
+   (7) Create a new directory called "dinner" using the command `mkdir dinner`. Verify this new directory has been created using the command `ls` to list all the files in the current directory.
 
-(8) Create 2 more directories within the "dinner" folder using the command:
-```
-mkdir dinner/entree dinner/dessert
-```
-Verify the beginnings of this hierarchical tree structure using the `ls -R` command.
+   (8) Create 2 more directories within the "dinner" folder using the command:
+   ```
+   mkdir dinner/entree dinner/dessert
+   ```
+   Verify the beginnings of this hierarchical tree structure using the `ls -R` command.
 
-(9) Create a variety of files within these new folders using the command:
-```
-touch dinner/entree/turkey dinner/entree/fish dinner/dessert/cake dinner/dessert/pudding
-```
-Verify the full hierarchical tree structure using the `ls -R` command.
+   (9) Create a variety of files within these new folders using the command:
+   ```
+   touch dinner/entree/turkey dinner/entree/fish dinner/dessert/cake dinner/dessert/pudding
+   ```
+   Verify the full hierarchical tree structure using the `ls -R` command.
 
-(10) Navigate into directory "dinner" using the command `cd dinnner`. Run `ls` to check the directories. Then, navigate into directory "dessert". 
+   (10) Navigate into directory "dinner" using the command `cd dinnner`. Run `ls` to check the directories. Then, navigate into directory "dessert". 
 
-(11) Create a new file named "icecream" using command `nano icecream`. Please note that 'nano' is a user-friendly file editor. The command will open up a space where you can immediately start typing to edit file "icecream". Add whatever text you like. To save your written text, press 'CTRL + X', 'Y', and then 'ENTER'. This returns you to the shell with a newly saved "icecream" file. Verify the file content using the command `cat icecream`. 
+   (11) Create a new file named "icecream" using command `nano icecream`. Please note that 'nano' is a user-friendly file editor. The command will open up a space where you can immediately start typing to edit file "icecream". Add whatever text you like. To save your written text, press 'CTRL + X', 'Y', and then 'ENTER'. This returns you to the shell with a newly saved "icecream" file. Verify the file content using the command `cat icecream`. 
 
-(12) Copy file "icecream" to the "~/dinner/entree/" directory using the command:
-```
-cp icecream ~/dinner/entree/icecream
-```
+   (12) Copy file "icecream" to the "~/dinner/entree/" directory using the command:
+   ```
+   cp icecream ~/dinner/entree/icecream
+   ```
 
-(13) Navigate to previous directory using the command `cd ..`. Optionally, you can go back to home directory using the command `cd` or `cd ~`. Verify the file "icecream" is copied to directory "entree" using the command `ls -R`. 
+   (13) Navigate to previous directory using the command `cd ..`. Optionally, you can go back to home directory using the command `cd` or `cd ~`. Verify the file "icecream" is copied to directory "entree" using the command `ls -R`. 
 
-(14) Delete the dinner directory using the command `rm -r dinner`.
+   (14) Delete the dinner directory using the command `rm -r dinner`.
 
 Some good Linux references for beginners:
 
