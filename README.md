@@ -237,7 +237,7 @@ echo "<h1>Hello World</h1>" > /var/www/html/index.html
 
    Well done! You have deployed your first hello world web server on your EC2 instance!
 
-7. Next, let's make more fun by customizing the website as you like :)
+8. Next, let's make more fun by customizing the website as you like :)
 
    In previous steps, we have learned how to edit files in Linux. Let's make some some changes to the 'index.html' file.
 
@@ -439,22 +439,16 @@ In this step, we will try to SSH from server1 to server2.
    scp -i /path/key-pair-name.pem /path/key-pair-name.pem ec2-user@server1-public-dns-name:~
    ```
 
-2. SSH to server1 and ensure the private key is copied successfully using the command `ls`.
+   Reference:
 
-3. SSH from server1 to server2 using the 'ssh' command on server1:
+   https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-linux-inst-ssh.html#linux-file-transfer-scp
+
+3. SSH to server1 and ensure the private key is copied successfully using the command `ls`.
+
+4. SSH from server1 to server2 using the 'ssh' command on server1:
    ```
    ssh -i "key-pair-name.pem" ec2-user@server2-public-dns-name
    ```
    To get back to server1, run the command `exit`.
 
-### Step 5: Security Group
-In this step, we will practice with security group. Firstly, we make server2 into a Hello World webserver, and then try to telnet from server1 for port 80. 
-
-1. Please repeat 1-6 in Step 6 from Part 1 on server2. Please ensure the website is working. 
-
-2. Try to telnet from server1 to server2 on port 80:
-   ```
-   telnet 172.31.0.41  80
-   ```
-   Does it work?
-3. 
+### Congratulations! You have finished all the labs for Introduction to IT!
