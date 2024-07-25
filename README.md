@@ -98,28 +98,27 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
    
    https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-to-linux-instance.html
 
-   For macOS user:
+   **For macOS user:**
 
    https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-linux-inst-ssh.html
 
    Note: Tranferring file using scp command is optional for now.
 
-   For Windows user:
+   **For Windows user:**
+
+   Note: Follow section "Connect to your Linux instance from Windows with OpenSSH"
 
    https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-linux-inst-from-windows.html
 
-   Note:
-   - Follow section "Connect to your Linux instance from Windows with OpenSSH"
-
-3. Reboot, Stop and Start your Linux instance.
+4. Reboot, Stop and Start your Linux instance.
 
    Questions:
    - After stop and start operations, can you still connect to the instance? Is there anything changed? How to reconnect?
       - Hint: pay attention to the "Public IPv4 DNS".
 
-4. For Linux instance, there is a short cut to connect to it by using EC2 Instance Connect: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-connect-tutorial.html#eic-tut1-task4
+5. For Linux instance, there is a short cut to connect to it by using EC2 Instance Connect: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-connect-tutorial.html#eic-tut1-task4
 
-5. Terminate your Linux instance.
+6. Terminate your Linux instance.
    
 ### Step 4: Launch an EC2 instance from AWS Systems Manager
 There are many approaches to launch an EC2 instance and work on it. In this step, you will launch an EC2 instance from AWS Systems Manager. 
