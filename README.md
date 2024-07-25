@@ -253,21 +253,47 @@ https://medium.com/@rj03012002/deploy-your-first-hello-world-application-on-aws-
 In this part of the lab, we are going to create a new VPC with one public subnet and one private subnet, and launch EC2 instances in each subnet as shown in above image. You will learn how to add Internet Gateway and NAT Gateway to your VPC, and get familiar with some useful networking commands. We only use Linux instances in this lab. 
 
 ### Step 1: Create a VPC with one public subnet and one private subnet
-Let's create a VPC first. Please follow the steps in "1. Create the VPC":
+
+0. First of all, let's get to know how VPC works. Please read through the following documentation:
+
+   https://docs.aws.amazon.com/vpc/latest/userguide/how-it-works.html
+
+1. Let's create your first nondefault VPC. Please follow the steps in "1. Create the VPC":
 
 Note:
 - step 5c: For Number of private subnets, choose 1.
 
 https://docs.aws.amazon.com/vpc/latest/userguide/vpc-example-dev-test.html
 
-### Step 2: Create two security groups
+After creating your first nondefault VPC, can you find the following information? You can take a note of them.
+- VPC ID
+- IPv4 CIDR
+- DNS hostnames
+- DNS resolution
+- Main route table and routes in it
+- Main Network ACL and rules in it
+
+2. We configured one public subnet and one private subnet when we created the VPC.
+   - Can you find the subnet IDs?
+   - What is the difference in their Route table?
+   - What's the ID of the Internet Gateway?
+
+Reference:
+[1] https://docs.aws.amazon.com/vpc/latest/userguide/vpc-igw-internet-access.html
+
+Question:
+Let's assume your VPC CIDR is 10.0.0.0/16. 
+- In public subnet, which rule will be applied if the traffic with destination 10.0.0.10? Which rule will be applied if the traffic with destination 8.8.8.8?
+- In private subnet, which rule will be applied if the traffic with destnation 10.0.0.10? What will happen for the traffic with destination 8.8.8.8?
+
+Don't be too worried if you don't know all the answers now. We will find them out later. 
 
 ### Step 3: Launch an EC2 instance in each subnet
 
 ### Step 4: Collect network information and test reachability
 
-### Step 5: Add an Internet Gateway
-
 ### Step 6: Add a NAT Gateway
+
+### Step 2: Create two security groups
 
 
