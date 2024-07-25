@@ -288,7 +288,7 @@ References:
 > After you finish all above steps, please terminate your instance.
 
 
-## Part 2 - Networking
+## Part 2 - Networking Basics
 
 In this part of the lab, we are going to launch two EC2 instances into the same VPC with Linux, and get familiar with some useful networking commands.
 
@@ -301,8 +301,6 @@ In this part of the lab, we are going to launch two EC2 instances into the same 
 2. Go to VPC console, can you find the following information for your default VPC?
    - VPC ID
    - IPv4 CIDR
-   - DNS hostnames
-   - DNS resolution
    - Main route table and routes in it
 
 3. How many subnets do you have in your default VPC?
@@ -312,23 +310,51 @@ In this part of the lab, we are going to launch two EC2 instances into the same 
 
 ### Step 1: Launch two EC2 instances in your default VPC
 
-1. Launch two Linux instances in your default VPC. Please name your instances with "server1" and "server2". 
+1. Launch two Linux instances in your default VPC (You do not need to change anything in network settings, just pay attention to the VPC ID). Please name your instances with "server1" and "server2". Make sure to select your key pair. 
 
    If you forget how to launch an EC2 instance, please refer to Step 3 in Part 1.
 
-2. Open two terminals on your laptop and SSH to both instances. 
+   Note: By default, a new security group will be created when you launch a new instance. So your two instances should have different security groups. 
+
+3. Open two terminals on your laptop and SSH to both instances. 
 
 ### Step 2: Collect network information and test reachability
 
-1. Print the instance IP address using the command `hostname -I` on both instances. 
+1. Print the instance IP address using the command `hostname -I` on both instances. For example, I have the following IPs:
+   ```
+   # server1
+   [ec2-user@ip-172-31-14-165 ~]$ hostname -I
+   172.31.14.165
 
-2. On server1, try to "ping" server 2. For example, the command is `ping 172.31.12.143 -c 5`. You need to replace the IP address by the IP address of your server2. The '-c 5' means 5 counts of results. Can you do the same on server2 to ping server1?
+   # server2
+   [ec2-user@ip-172-31-0-41 ~]$ hostname -I
+   172.31.0.41
+   ```
 
-3. As the subnets are public subnets, you can also ping a website directly. On either of your server, run command `ping amazon.com -c 5`
+2. Command 'ping' is used to test the reachability of a host on an IP network. On server1, try to "ping" server 2. For example, the command will be like:
+   ```
+   ping -c 5 172.31.0.41
+   ```
+   You need to replace the IP address by the IP address of your server2. The '-c 5' means 5 counts of results. Can you do the same on server2 to ping server1?
 
-4. What's the IP address of 'www.amazon.com'? You can find it out using command `nslookup www.amazon.com`. You shall be able to find the IP address under 'Non-authoritative answer:'. 
+3. As the subnets are public subnets, you can also ping a website directly. On either of your server, run command `ping google.com -c 5`. Do you see any difference in the results?
 
-5. How dose the network packet get there? Try command `traceroute www.amazon.com`.
+4. Nslookup (stands for “Name Server Lookup”) is a useful command for getting information from the DNS server. You can find the IP address of 'google.com' using command:
+   ```
+   nslookup google.com
+   ```
+   You shall be able to find the IP address under 'Non-authoritative answer:'.
+
+5. Nslookup can also perform a reverse DNS lookup. Try the command with the IP address of your server2. For example:
+   ```
+   nslookup 172.31.0.41
+   ```
+
+6. In networking, understanding the path that data packets take from one point to another is crucial for diagnosing and troubleshooting connectivity issues. Traceroute is a command-line tool used in Linux to track the path that data takes from your computer to a specified destination. It shows you each "hop" that the data packet makes along its journey. This includes the different servers or devices it passes through, and how long each step takes. Try command:
+   ```
+   traceroute google.com
+   ```
+   Do you see the IP address you found in 4. in the traceroute results?
 
 ### Step 3: Telnet and Packet Capture
 
