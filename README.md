@@ -66,8 +66,10 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
 3. Stop, Start and Reboot your Windows instance. Please follow the steps in "Manually stop and start your instances":
    
    https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html
+
+   Do you know how to reboot the instance?
    
-4. Terminate your Windows instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html
+5. Terminate your Windows instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html
 
 #### Linux:
 1. Launch a Linux instance from console. Please follow the steps in "Step 1: Launch an instance":
