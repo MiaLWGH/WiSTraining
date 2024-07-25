@@ -58,7 +58,7 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
 
    Note:
    - Please finish all steps in "Prerequisites". For macOS, you can find Microsoft Remote Desktop in Amazon's Self Service.
-   - Security group allows traffic from 0.0.0.0/0 for port 3389 if you use default network settings.
+   - If you use default network settings, security group already allows traffic from 0.0.0.0/0 for port 3389.
    - Follow the steps in "Connect to a Windows instance using RDP and its IPv4 address"
 
    https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-rdp.html
@@ -66,11 +66,6 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
 3. Stop, Start and Reboot your Windows instance. Please follow the steps in "Manually stop and start your instances":
    
    https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html
-
-   Questions:
-   - After stop and start operations, can you still connect to the instance? Do you know why? How to reconnect?
-      - Hint: pay attention to the "Public IPv4 DNS".
-   - Do you know how to reboot the instance? After that, can you connect to the instance?
    
 4. Terminate your Windows instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html
 
@@ -117,7 +112,9 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
 
 3. Reboot, Stop and Start your Linux instance.
 
-   Question: After stop and start operations, can you reconnect to it?
+   Questions:
+   - After stop and start operations, can you still connect to the instance? Is there anything changed? How to reconnect?
+      - Hint: pay attention to the "Public IPv4 DNS".
 
 4. For Linux instance, there is a short cut to connect to it by using EC2 Instance Connect: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-connect-tutorial.html#eic-tut1-task4
 
@@ -202,7 +199,7 @@ Some good Linux references for beginners:
 [2] https://www.digitalocean.com/community/tutorials/an-introduction-to-linux-basics#the-filesystem-hierarchy-standard
 
 ### Step 6: Hello World webserver
-Now, let's make the EC2 instance that you played with in Step 5 into a simple Hello World webserver. 
+Now, let's make the EC2 instance that you played with in Step 5 into your first webserver. 
 
 1. We are using an Apache server in this tutorial so for that we need to install httpd to run apache server. 'httpd' is Produced by Apache Foundation and it is a piece of software that listens for network requests and responds to them. Run the following commands on your instance:
 ```
@@ -227,25 +224,68 @@ chown -R $USER /var/www/html
 echo "<h1>Hello World</h1>" > /var/www/html/index.html
 ```
 
-5. Next, we need to make a change to the security group to allow the HTTP traffic from your laptop to go to the instance via port 80. Go back to EC2 console and find the security group of your instance.
+5. Next, we need to make a change to the security group to allow the HTTP traffic from your laptop to go to the instance via port 80. A security group acts as a virtual firewall for your EC2 instances to control incoming and outgoing traffic. Go back to EC2 console and find the security group of your instance.
    - Click on the security group ID, which will lead you to the security group details page.
    - Click on button 'Edit inbound rules'.
    - Click on button 'Add rule'.
-   - Choose 'HTTP' for 'Type', 'Anywhere-IPv4' or 'My IP' for 'Source'.
+   - Choose 'HTTP' for 'Type', 'Anywhere-IPv4' for 'Source'.
    - Click 'Save rules'. 
 
 6. Copy the 'Public IPv4 DNS' of your instance, and type `http://Public-IPv4-DNS-of-your-instance` in your broswer. You shall be able to see:
 
-![example](https://github.com/MiaLWGH/WiSTraining/blob/main/Screenshot1.png?raw=true)
+   ![example](https://github.com/MiaLWGH/WiSTraining/blob/main/Screenshot1.png?raw=true)
 
-Congratulations! You have deployed your first hello world web server on your EC2 instance!
+   Well done! You have deployed your first hello world web server on your EC2 instance!
 
-Reference:
+7. Next, let's make more fun by customizing the website as you like :)
 
-https://medium.com/@rj03012002/deploy-your-first-hello-world-application-on-aws-ec2-instance-e474028964a9
+   In previous steps, we have learned how to edit files in Linux. Let's make some some changes to the 'index.html' file.
+
+   (1) Read the file:
+   ```
+   cat /var/www/html/index.html
+   ```
+   You shall see only one line for now, which is a heading with `<h1>` tag. 
+
+   (2) Edit the file to add a subheading and a paragraph on your website:
+   ```
+   nano /var/www/html/index.html
+   ```
+   In the space, let's add a subheading and a paragraph with `<h2>` and `<p>` tags. For example:
+   ```
+   <h1>Hello World</h1>
+   <h2>About Me</h2>
+   <p>Welcome to my website! My name is Mia. This is my first website!</p>
+   ```
+   You can edit the contents to anything you like. To save your written text, press 'CTRL + X', 'Y', and then 'ENTER'.
+
+   (3) Refresh your website, do you see the updates?
+
+   (4) Edit the index.html file again to add an image and a link with `<img>` and `<a>` tags. For example:
+   ```
+   <h1>Hello World</h1>
+   <h2>About Me</h2>
+   <p>Welcome to my website! My name is Mia. This is my first website!</p>
+   <img src="https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png" width="400px"/>
+   <p>Below is AWS website</p>
+   <a href="https://aws.amazon.com/">Link</a>
+   ```
+   To replace the image, you need to change the value for 'src'. To change the image size, please try to change the value of 'width'. To change the link, please change the value of 'href'. After saving the changes, refresh your website to check the updates.
+
+   My website is like below:
+
+   ![screenshot]()
+
+Show us your creative website! Have fun!
+
+References:
+
+[1] https://medium.com/@rj03012002/deploy-your-first-hello-world-application-on-aws-ec2-instance-e474028964a9
+[2] https://www.w3schools.com/html/html_basic.asp
 
 > [!NOTE]
-> After you finish all above steps, please terminate your instance!
+> After you finish all above steps, please terminate your instance.
+
 
 ## Part 2 - Networking
 
