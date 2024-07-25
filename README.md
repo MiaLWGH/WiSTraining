@@ -318,7 +318,7 @@ In this part of the lab, we are going to launch two EC2 instances into the same 
 
 3. Open two terminals on your laptop and SSH to both instances. 
 
-### Step 2: Collect network information and test reachability
+### Step 2: Check hostname and test reachability
 
 1. Print the instance IP address using the command `hostname -I` on both instances. For example, I have the following IPs:
    ```
@@ -357,6 +357,7 @@ In this part of the lab, we are going to launch two EC2 instances into the same 
    Do you see the IP address you found in 4. in the traceroute results?
 
 ### Step 3: Telnet and Packet Capture
+In this step, we 
 
 1. Install telnet on each instance:
 ```
