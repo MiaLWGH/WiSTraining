@@ -273,7 +273,7 @@ In this part of the lab, we are going to launch two EC2 instances into the same 
 
 1. Launch two Linux instances in your default VPC. Please name your instances with "server1" and "server2". 
 
-If you forget how to launch an EC2 instance, please refer to Step 3 in Part 1.
+   If you forget how to launch an EC2 instance, please refer to Step 3 in Part 1.
 
 2. Open two terminals on your laptop and SSH to both instances. 
 
