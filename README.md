@@ -366,7 +366,7 @@ In this part of the lab, we are going to launch two EC2 instances into the same 
 
    https://ipinfo.io/
 
-   Try to copy and paste the IP addresses in the last 5 hops from the traceroute result to above website to see the IP address data. Can you find at which hop the packet left Amazon network and went into Google network?
+   Try to copy the IP addresses in the last 5 hops from the traceroute result and paste into above website to see the IP address data. Can you find at which hop the packet left Amazon network and went into Google network?
 
 ### Step 3: Telnet and Packet Capture
 In this step, we are going to use 'telnet' command to check if port 22 (SSH) is responsive at the other machine. At the same time, we will use 'tcpdump' command to capture the packets, which will reveal more secrets in networking. 
