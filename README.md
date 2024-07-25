@@ -201,7 +201,7 @@ Some good Linux references for beginners:
 
 [2] https://www.digitalocean.com/community/tutorials/an-introduction-to-linux-basics#the-filesystem-hierarchy-standard
 
-### Step 6: Hello World webserver (30 min)
+### Step 6: Hello World webserver
 Now, let's make the EC2 instance that you played with in Step 5 into a simple Hello World webserver. 
 
 1. We are using an Apache server in this tutorial so for that we need to install httpd to run apache server. 'httpd' is Produced by Apache Foundation and it is a piece of software that listens for network requests and responds to them. Run the following commands on your instance:
@@ -248,52 +248,71 @@ https://medium.com/@rj03012002/deploy-your-first-hello-world-application-on-aws-
 > After you finish all above steps, please terminate your instance!
 
 ## Part 2 - Networking
-![VPC](https://d1.awsstatic.com/getting-started-guides/vpc-with-nat.7ad78b23ba91be288afdf8a0d836820add439d44.png)
 
-In this part of the lab, we are going to create a new VPC with one public subnet and one private subnet, and launch EC2 instances in each subnet as shown in above image. You will learn how to add Internet Gateway and NAT Gateway to your VPC, and get familiar with some useful networking commands. We only use Linux instances in this lab. 
+In this part of the lab, we are going to launch two EC2 instances into the same VPC with Linux, and get familiar with some useful networking commands.
 
-### Step 1: Create a VPC with one public subnet and one private subnet
+### Step 0: Get to know your default VPC
 
-0. First of all, let's get to know how VPC works. Please read through the following documentation:
+1. First of all, let's get to know how VPC works. Please read through the following documentation:
 
    https://docs.aws.amazon.com/vpc/latest/userguide/how-it-works.html
 
-1. Let's create your first nondefault VPC. Please follow the steps in "1. Create the VPC":
+2. Go to VPC console, can you find the following information for your default VPC?
+   - VPC ID
+   - IPv4 CIDR
+   - DNS hostnames
+   - DNS resolution
+   - Main route table and routes in it
 
-Note:
-- step 5c: For Number of private subnets, choose 1.
-
-https://docs.aws.amazon.com/vpc/latest/userguide/vpc-example-dev-test.html
-
-After creating your first nondefault VPC, can you find the following information? You can take a note of them.
-- VPC ID
-- IPv4 CIDR
-- DNS hostnames
-- DNS resolution
-- Main route table and routes in it
-- Main Network ACL and rules in it
-
-2. We configured one public subnet and one private subnet when we created the VPC.
+3. How many subnets do you have in your default VPC?
    - Can you find the subnet IDs?
-   - What is the difference in their Route table?
-   - What's the ID of the Internet Gateway?
+   - What is the difference in their IPv4 CIDR?
+   - Can you find the route table? What are the routes?
 
-Reference:
-[1] https://docs.aws.amazon.com/vpc/latest/userguide/vpc-igw-internet-access.html
+### Step 1: Launch two EC2 instances in your default VPC
 
-Question:
-Let's assume your VPC CIDR is 10.0.0.0/16. 
-- In public subnet, which rule will be applied if the traffic with destination 10.0.0.10? Which rule will be applied if the traffic with destination 8.8.8.8?
-- In private subnet, which rule will be applied if the traffic with destnation 10.0.0.10? What will happen for the traffic with destination 8.8.8.8?
+1. Launch two Linux instances in your default VPC. Please name your instances with "server1" and "server2". 
 
-Don't be too worried if you don't know all the answers now. We will find them out later. 
+If you forget how to launch an EC2 instance, please refer to Step 3 in Part 1.
 
-### Step 3: Launch an EC2 instance in each subnet
+2. Open two terminals on your laptop and SSH to both instances. 
 
-### Step 4: Collect network information and test reachability
+### Step 2: Collect network information and test reachability
 
-### Step 6: Add a NAT Gateway
+1. Print the instance IP address using the command `hostname -I` on both instances. 
 
-### Step 2: Create two security groups
+2. On server1, try to "ping" server 2. For example, the command is `ping 172.31.12.143 -c 5`. You need to replace the IP address by the IP address of your server2. The '-c 5' means 5 counts of results. Can you do the same on server2 to ping server1?
+
+3. As the subnets are public subnets, you can also ping a website directly. On either of your server, run command `ping amazon.com -c 5`
+
+4. What's the IP address of 'www.amazon.com'? You can find it out using command `nslookup www.amazon.com`. You shall be able to find the IP address under 'Non-authoritative answer:'. 
+
+5. How dose the network packet get there? Try command `traceroute www.amazon.com`.
+
+### Step 3: Telnet and Packet Capture
+
+1. Install telnet on each instance:
+```
+sudo yum install telnet -y
+```
+
+2. Telnet to port 22 from one server to another:
+```
+telnet 172.31.12.143 22
+```
+
+3. Capture the packets by using tcpdump:
+```
+sudo tcpdump -A host <Private IP EC2 #2>
+```
+
+### Step 4 (Optional): Hop from one to another
+
+1. Transfer your private key file to server1 using scp command:
+```
+scp -i path-to-keypair path-to-keypair ubuntu@<Private IP EC2 #1>:~
+```
+
+2. SSH to server2 from server1 and observe the traffic.
 
 
