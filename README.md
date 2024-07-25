@@ -102,8 +102,7 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
 
    https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-linux-inst-ssh.html
 
-   Note:
-   - Tranferring file using scp command is optional. 
+   Note: Tranferring file using scp command is optional for now.
 
    For Windows user:
 
