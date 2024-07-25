@@ -330,9 +330,9 @@ In this part of the lab, we are going to launch two EC2 instances into the same 
    [ec2-user@ip-172-31-0-41 ~]$ hostname -I
    172.31.0.41
    ```
-   If the IPv4 CIDR of VPC is 172.31.0.0/16 and route table is like below, which rule will apply for the traffic between them?
+   If the IPv4 CIDR of VPC is 172.31.0.0/16 and route table is like below, which rule will apply for the traffic between them? Which rule will apply for IP address 8.8.8.8?
 
-   ![routetable]()
+   ![routetable](https://github.com/MiaLWGH/WiSTraining/blob/main/Route_table.png?raw=true)
    
 > [!NOTE]
 > In the following lab, I use above IPs as examples. Please replace the IP addresses by yours in commands. 
@@ -429,15 +429,32 @@ In this step, we are going to use 'telnet' command to check if port 22 (SSH) is 
 
    Each entry starting with 'IP' is a packet with a source and a destination. Can you find the hostnames of your server1 and server2?
 
-   Don't worry if you cannot understand the contents now. All you need to know here is the two instances are sending packets to each other to establish a reliable connection between them. This process is called "Three way handshake", which will be covered in following lecture. 
+   Don't worry if you cannot understand the contents now. All you need to know here is the two instances are sending packets to each other to establish a reliable connection between them. This process is called "Three way handshake", which will be covered in later network training. 
 
-### Step 4 (Optional): Hop from one to another
+### Step 4: SSH from one instance to another
+In this step, we will try to SSH from server1 to server2. 
 
-1. Transfer your private key file to server1 using scp command:
-```
-scp -i path-to-keypair path-to-keypair ubuntu@<Private IP EC2 #1>:~
-```
+1. Transfer your private key file to server1 by running the following 'scp' command on your laptop:
+   ```
+   scp -i /path/key-pair-name.pem /path/key-pair-name.pem ec2-user@server1-public-dns-name:~
+   ```
 
-2. SSH to server2 from server1 and observe the traffic.
+2. SSH to server1 and ensure the private key is copied successfully using the command `ls`.
 
+3. SSH from server1 to server2 using the 'ssh' command on server1:
+   ```
+   ssh -i "key-pair-name.pem" ec2-user@server2-public-dns-name
+   ```
+   To get back to server1, run the command `exit`.
 
+### Step 5: Security Group
+In this step, we will practice with security group. Firstly, we make server2 into a Hello World webserver, and then try to telnet from server1 for port 80. 
+
+1. Please repeat 1-6 in Step 6 from Part 1 on server2. Please ensure the website is working. 
+
+2. Try to telnet from server1 to server2 on port 80:
+   ```
+   telnet 172.31.0.41  80
+   ```
+   Does it work?
+3. 
