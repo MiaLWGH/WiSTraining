@@ -330,6 +330,10 @@ In this part of the lab, we are going to launch two EC2 instances into the same 
    [ec2-user@ip-172-31-0-41 ~]$ hostname -I
    172.31.0.41
    ```
+   If the IPv4 CIDR of VPC is 172.31.0.0/16 and route table is like below, which rule will apply for the traffic between them?
+
+   ![routetable]()
+   
 > [!NOTE]
 > In the following lab, I use above IPs as examples. Please replace the IP addresses by yours in commands. 
 
@@ -368,65 +372,64 @@ In this part of the lab, we are going to launch two EC2 instances into the same 
 In this step, we are going to use 'telnet' command to check if port 22 (SSH) is responsive at the other machine. At the same time, we will use 'tcpdump' command to capture the packets, which will reveal more secrets in networking. 
 
 1. Install telnet on both instances:
-```
-sudo yum install telnet -y
-```
+   ```
+   sudo yum install telnet -y
+   ```
 
 2. Telnet to port 22 from server1 to server2. For example:
-```
-telnet 172.31.12.143 22
-```
-You shall be able to see the following result if it works:
-```
-[ec2-user@ip-172-31-14-165 ~]$ telnet 172.31.0.41 22
-Trying 172.31.0.41...
-Connected to 172.31.0.41.
-Escape character is '^]'.
-SSH-2.0-OpenSSH_8.7
-```
-You can get out from the command by pressing 'ENTER'. 
+   ```
+   telnet 172.31.12.143 22
+   ```
+   You shall be able to see the following result if it works:
+   ```
+   [ec2-user@ip-172-31-14-165 ~]$ telnet 172.31.0.41 22
+   Trying 172.31.0.41...
+   Connected to 172.31.0.41.
+   Escape character is '^]'.
+   SSH-2.0-OpenSSH_8.7
+   ```
+   You can get out from the command by pressing 'ENTER'. 
 
 3. On server2, run the following 'tcpdump' command to capture packets. For example:
-```
-sudo tcpdump -A host 172.31.14.165
-```
-Then switch to server1 and run the telnet command. For example:
-```
-telnet 172.31.0.41 22
-```
-Observe the terminal of server2, you shall be able to see some packages like below:
-```
-[ec2-user@ip-172-31-0-41 ~]$ sudo tcpdump -A host 172.31.14.165
-dropped privs to tcpdump
-tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
-listening on enX0, link-type EN10MB (Ethernet), snapshot length 262144 bytes
-14:38:56.294578 IP ip-172-31-14-165.ap-southeast-2.compute.internal.47218 > ip-172-31-0-41.ap-southeast-2.compute.internal.ssh: Flags [S], seq 4044145633, win 62727, options [mss 8961,sackOK,TS val 2834667800 ecr 0,nop,wscale 7], length 0
-E..<#.@...p........).r....................#....
-............
-14:38:56.294618 ARP, Request who-has ip-172-31-14-165.ap-southeast-2.compute.internal tell ip-172-31-0-41.ap-southeast-2.compute.internal, length 28
-.........*`......)..........
-14:38:56.294718 ARP, Reply ip-172-31-14-165.ap-southeast-2.compute.internal is-at 02:46:2c:0f:44:05 (oui Unknown), length 42
-.........F,.D......*`......)..............
-14:38:56.294725 IP ip-172-31-0-41.ap-southeast-2.compute.internal.ssh > ip-172-31-14-165.ap-southeast-2.compute.internal.47218: Flags [S.], seq 1607214832, ack 4044145634, win 62643, options [mss 8961,sackOK,TS val 1392008710 ecr 2834667800,nop,wscale 7], length 0
-E..<..@........).......r_.&.........g;....#....
-R.^.........
-14:38:56.295140 IP ip-172-31-14-165.ap-southeast-2.compute.internal.47218 > ip-172-31-0-41.ap-southeast-2.compute.internal.ssh: Flags [.], ack 1, win 491, options [nop,nop,TS val 2834667801 ecr 1392008710], length 0
-E..4#.@...p........).r......_.&.....&......
-....R.^.
-14:38:56.304151 IP ip-172-31-0-41.ap-southeast-2.compute.internal.ssh > ip-172-31-14-165.ap-southeast-2.compute.internal.47218: Flags [P.], seq 1:22, ack 1, win 490, options [nop,nop,TS val 1392008720 ecr 2834667801], length 21: SSH: SSH-2.0-OpenSSH_8.7
-E..I..@....!...).......r_.&.........gH.....
-R.^.....SSH-2.0-OpenSSH_8.7
+   ```
+   sudo tcpdump -A host 172.31.14.165
+   ```
+   Then switch to server1 and run the telnet command. For example:
+   ```
+   telnet 172.31.0.41 22
+   ```
+   Observe the terminal of server2, you shall be able to see some packages like below:
+   ```
+   [ec2-user@ip-172-31-0-41 ~]$ sudo tcpdump -A host 172.31.14.165
+   dropped privs to tcpdump
+   tcpdump: verbose output suppressed, use -v[v]... for full protocol decode
+   listening on enX0, link-type EN10MB (Ethernet), snapshot length 262144 bytes
+   15:40:39.744620 IP ip-172-31-14-165.ap-southeast-2.compute.internal.35350 > ip-172-31-0-41.ap-southeast-2.compute.internal.ssh: Flags [S], seq 4210527453, win 62727, options [mss 8961,sackOK,TS val 2838371250 ecr 0,nop,wscale 7], length 0
+   E..<9.@...Z........)......................#....
+   ............
+   15:40:39.744656 ARP, Request who-has ip-172-31-14-165.ap-southeast-2.compute.internal tell ip-172-31-0-41.ap-southeast-2.compute.internal, length 28
+   .........*`......)..........
+   15:40:39.744762 ARP, Reply ip-172-31-14-165.ap-southeast-2.compute.internal is-at 02:46:2c:0f:44:05 (oui Unknown), length 42
+   .........F,.D......*`......)..............
+   15:40:39.744766 IP ip-172-31-0-41.ap-southeast-2.compute.internal.ssh > ip-172-31-14-165.ap-southeast-2.compute.internal.35350: Flags [S.], seq 1310977677, ack 4210527454, win 62643, options [mss 8961,sackOK,TS val 1395712160 ecr 2838371250,nop,wscale 7], length 0
+   E..<..@........)........N#..........g;....#....
+   S0..........
+   15:40:39.745052 IP ip-172-31-14-165.ap-southeast-2.compute.internal.35350 > ip-172-31-0-41.ap-southeast-2.compute.internal.ssh: Flags [.], ack 1, win 491, options [nop,nop,TS val 2838371251 ecr 1395712160], length 0
+   E..49.@...Z........)........N#.......].....
+   ....S0..
+   15:40:39.754026 IP ip-172-31-0-41.ap-southeast-2.compute.internal.ssh > ip-172-31-14-165.ap-southeast-2.compute.internal.35350: Flags [P.], seq 1:22, ack 1, win 490, options [nop,nop,TS val 1395712170 ecr 2838371251], length 21: SSH: SSH-2.0-OpenSSH_8.7
+   E..I..@........)........N#..........gH.....
+   S0......SSH-2.0-OpenSSH_8.7
 
-14:38:56.304629 IP ip-172-31-14-165.ap-southeast-2.compute.internal.47218 > ip-172-31-0-41.ap-southeast-2.compute.internal.ssh: Flags [.], ack 22, win 491, options [nop,nop,TS val 2834667811 ecr 1392008720], length 0
-E..4#.@...p........).r......_.'.....&Y.....
-...#R.^.
-```
-On server1, press 'ENTER' to stop telnet. On server2, press 'CTRL+C' to stop tcpdump.
+   15:40:39.754403 IP ip-172-31-14-165.ap-southeast-2.compute.internal.35350 > ip-172-31-0-41.ap-southeast-2.compute.internal.ssh: Flags [.], ack 22, win 491, options [nop,nop,TS val 2838371260 ecr 1395712170], length 0
+   E..49.@...Z........)........N#.......5.....
+   ....S0..
+   ```
+   On server1, press 'ENTER' to stop telnet. On server2, press 'CTRL+C' to stop tcpdump.
 
-Each entry starting with 'IP' is a packet with a source and a destination. Can you find the hostnames of your server1 and server2?
+   Each entry starting with 'IP' is a packet with a source and a destination. Can you find the hostnames of your server1 and server2?
 
-Don't worry if you cannot understand the contents now. All you need to know here is the two instances are sending packets to each other to establish a reliable connection between them. This process is called 
-
+   Don't worry if you cannot understand the contents now. All you need to know here is the two instances are sending packets to each other to establish a reliable connection between them. This process is called "Three way handshake", which will be covered in following lecture. 
 
 ### Step 4 (Optional): Hop from one to another
 
