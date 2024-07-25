@@ -139,7 +139,7 @@ In this step, let's learn some basic Linux commands.
 
 2. Collect system and hardward information:
 
-   (1) Print system information using the command `uname`. View your network hostname using `uname -n`.
+   (1) Print system information using the command `uname`. View your network hostname using `uname -n` or `hostname`.
 
    (2) Print your username using the command `whoami`. 
 
@@ -274,13 +274,14 @@ echo "<h1>Hello World</h1>" > /var/www/html/index.html
 
    My website is like below:
 
-   ![screenshot]()
+   ![screenshot](https://github.com/MiaLWGH/WiSTraining/blob/main/Screenshot%202024-07-25%20at%2021-23-35%20.png?raw=true)
 
-Show us your creative website! Have fun!
+**Show us your creative website! Have fun!**
 
 References:
 
 [1] https://medium.com/@rj03012002/deploy-your-first-hello-world-application-on-aws-ec2-instance-e474028964a9
+
 [2] https://www.w3schools.com/html/html_basic.asp
 
 > [!NOTE]
