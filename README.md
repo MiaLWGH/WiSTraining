@@ -376,9 +376,9 @@ In this step, we are going to use 'telnet' command to check if port 22 (SSH) is 
    sudo yum install telnet -y
    ```
 
-2. Telnet to port 22 from server1 to server2. For example:
+2. In server1 terminal, telnet to port 22 from server1 to server2. For example:
    ```
-   telnet 172.31.12.143 22
+   telnet 172.31.0.41 22
    ```
    You shall be able to see the following result if it works:
    ```
@@ -390,11 +390,11 @@ In this step, we are going to use 'telnet' command to check if port 22 (SSH) is 
    ```
    You can get out from the command by pressing 'ENTER'. 
 
-3. On server2, run the following 'tcpdump' command to capture packets. For example:
+3. In server2 terminal, run the following 'tcpdump' command to capture packets. For example:
    ```
    sudo tcpdump -A host 172.31.14.165
    ```
-   Then switch to server1 and run the telnet command. For example:
+   In server1 terminal, rerun the telnet command. For example:
    ```
    telnet 172.31.0.41 22
    ```
@@ -450,5 +450,7 @@ In this step, we will try to SSH from server1 to server2.
    ssh -i "key-pair-name.pem" ec2-user@server2-public-dns-name
    ```
    To get back to server1, run the command `exit`.
+
+5. (Option) Can you try to capture packets when you SSH from server1 to server2?
 
 ### Congratulations! You have finished all the labs for Introduction to IT!
