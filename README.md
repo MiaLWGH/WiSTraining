@@ -179,7 +179,7 @@ In this step, let's learn some basic Linux commands.
    ```
    Verify the full hierarchical tree structure using the `ls -R` command.
 
-   (10) Navigate into directory "dinner" using the command `cd dinnner`. Run `ls` to check the directories. Then, navigate into directory "dessert". 
+   (10) Navigate into directory "dinner" using the command `cd dinner`. Run `ls` to check the directories. Then, navigate into directory "dessert". 
 
    (11) Create a new file named "icecream" using command `nano icecream`. Please note that 'nano' is a user-friendly file editor. The command will open up a space where you can immediately start typing to edit file "icecream". Add whatever text you like. To save your written text, press 'CTRL + X', 'Y', and then 'ENTER'. This returns you to the shell with a newly saved "icecream" file. Verify the file content using the command `cat icecream`. 
 
