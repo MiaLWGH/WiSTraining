@@ -455,4 +455,24 @@ In this step, we will try to SSH from server1 to server2.
 
 5. (Option) Can you try to capture packets when you SSH from server1 to server2?
 
+### Step 5: Modify the security group
+In previous steps, we used all the default network settings, which is not the best practice as the security group is open to the world (0.0.0.0/0). In this step, you need to change both security groups attached with your two instances to only allow the traffic from specific sources. 
+
+1. To only allow SSH from your laptop, you need to edit the inbound rules of your security groups. Specifically, change 'Anywhere-IPv4' to 'My IP' for 'Source'. Can you still SSH to your instances?
+
+   Note: Because of AWS Firewall, it is possible the automatically found IP is not correct.
+
+   Hint:
+   - Usually, you can Google "what is my IP" to find your IP address. Does it work here?
+   - If it is still not working, try to roll back to 0.0.0.0/0 and SSH to your instance. You shall be able to find your actual IP address by running below command (source IP in last two records):
+     ```
+     sudo lsof -i tcp:22
+     ```
+
+2. Please repeat step 2 and 3. You need to edit the security groups if needed.
+
+Reference:
+
+[1] https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/changing-security-group.html#add-remove-security-group-rules
+
 ### Congratulations! You have finished all the labs for Introduction to IT!
