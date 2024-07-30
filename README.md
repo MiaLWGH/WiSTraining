@@ -475,4 +475,7 @@ Reference:
 
 [1] https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/changing-security-group.html#add-remove-security-group-rules
 
+> [!NOTE]
+> After you finish all above steps, please terminate your instances. DO NOT delete your default VPC. 
+
 ### Congratulations! You have finished all the labs for Introduction to IT!
