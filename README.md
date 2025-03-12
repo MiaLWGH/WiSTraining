@@ -57,9 +57,13 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
 2. Connect to your Windows instance:
 
    Note:
-   - Please finish all steps in "Prerequisites". For macOS, you can find Microsoft Remote Desktop in Amazon's Self Service.
+   - Please finish all steps in "Prerequisites". For macOS, you can find "Windows App" instead of RDP client in ACME.
    - If you use default network settings, security group already allows traffic from 0.0.0.0/0 for port 3389.
-   - Follow the steps in "Connect to a Windows instance using RDP and its IPv4 address"
+   - Follow the steps in "Retrieve the administrator password".
+   - Follow the steps in "Connect to your Windows instance".
+     - Step 2: open Windows App
+     - Step 3: From menu "Connections", choose "Import from RDP file...". Locate your downloaded RDP file and choose "Import".Then, you shall be able to see your instance showing in Windows App. 
+     - Step 5: Right click on your instance and choose "Connect"
 
    https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-rdp.html
 
