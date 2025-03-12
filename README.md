@@ -130,9 +130,13 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
 
 5. For Linux instance, there is a short cut to connect to it by using EC2 Instance Connect: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-connect-tutorial.html#eic-tut1-task4
 
-   If you are facing a connection issue, please ensure that the security group allows SSH traffic from "13.239.158.0/29". 
+   Note:
+   - If you are facing a connection issue, you need to update the security group to allow SSH traffic from prefix "com.amazonaws.*region*.ec2-instance-connect" (replace region by ap-southeast-2 if you are using Sydney region).
+   - Please check "Task 2: Allow inbound traffic from the EC2 Instance Connect service to your instance" on the same page for more information.
+   - Instead of creating a new security group, you can find the existing one and "Edit inbound rules". Choose "Add rule" --> Type: SSH --> Source: Custom --> Prefix: com.amazonaws.*region*.ec2-instance-connect
+   - After editting the security group, the EC2 Instance Connect shall work. 
 
-6. Terminate your Linux instance.
+7. Terminate your Linux instance.
    
 ### Step 4: Launch an EC2 instance from AWS Systems Manager
 There are many approaches to launch an EC2 instance and work on it. In this step, you will launch an EC2 instance from AWS Systems Manager. 
