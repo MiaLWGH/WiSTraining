@@ -83,7 +83,7 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
    - Step 8: Under "Network settings" ensure "Allow SSH traffic from" is checked. Change "Anywhere" to "My IP". 
    - The launching may take a few minutes. Wait unitl Status Check shows it passed checks. 
 
-   https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
+   https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-launch-instance
 
    When the instance is ready, can you find the following information? You can take a note of them. 
    - Instance ID
