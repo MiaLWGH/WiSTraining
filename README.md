@@ -111,7 +111,10 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
      ```
      Warning: Identity file lab-test-syd.pem not accessible: No such file or directory.
      ```
-     locate your private key (.pem file) and add the path of your key
+     locate your private key (.pem file) and add the path of your key into the SSH command like below:
+     ```
+     ssh -i /path/key-pair-name.pem instance-user-name@instance-public-dns-name
+     ```
 
    **For Windows user:**
 
