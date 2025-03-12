@@ -216,7 +216,7 @@ Some good Linux references for beginners:
 ### Step 6: Hello World webserver
 Now, let's make the EC2 instance that you played with in Step 5 into your first webserver. 
 
-1. We are using an Apache server in this tutorial so for that we need to install httpd to run apache server. 'httpd' is Produced by Apache Foundation and it is a piece of software that listens for network requests and responds to them. Run the following commands on your instance:
+1. We are using an Apache server in this tutorial so for that we need to install httpd to run apache server. 'httpd' is produced by Apache Foundation and it is a piece of software that listens for network requests and responds to them. Run the following commands on your instance:
 ```
 sudo su
 yum update -y
