@@ -39,7 +39,7 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
    Note:
    - Step 5: Choose Windows under Quick Start
    - Step 7: Choose your key
-   - Step 8: Keep all default settings
+   - Step 8: Under "Network settings" ensure "Allow RDP traffic from" is checked. Change "Anywhere 0.0.0.0/0" to "My IP". 
    - The launching may take a few minutes. Wait unitl Status Check shows it passed both checks. 
 
    https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-launch-instance
