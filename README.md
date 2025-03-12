@@ -19,7 +19,7 @@ To connect to an EC2 instance, you need a key pair. In this step, you will use E
    - Step 6: Choose .pem for key file format
    - Step 10: For macOS computer only. You need to run the command in Terminal. If you use Windows, skip this step.
 
-   https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html
+   https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html#having-ec2-create-your-key-pair
   
 3. You shall be able to view your key pairs in your EC2 console. Open CloudShell and type in the following command to describe your key pairs:
    ```
