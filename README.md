@@ -143,10 +143,7 @@ There are many approaches to launch an EC2 instance and work on it. In this step
 Please follow the instructions in below tutorial:
 
 Note: 
-- Step 4.e: Use following command:
-```
-sudo yum -y update
-```
+- Step 4.e: Don't copy & paste the command! Type it by yourself :)
 
 https://aws.amazon.com/getting-started/hands-on/remotely-run-commands-ec2-instance-systems-manager/?ref=gsrchandson&id=itprohandson
 
