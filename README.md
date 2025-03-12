@@ -39,7 +39,7 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
    Note:
    - Step 5: Choose Windows under Quick Start
    - Step 7: Choose your key
-   - Step 8: Under "Network settings" ensure "Allow RDP traffic from" is checked. Change "Anywhere 0.0.0.0/0" to "My IP". 
+   - Step 8: Under "Network settings" ensure "Allow RDP traffic from" is checked. Change "Anywhere" to "My IP". 
    - The launching may take a few minutes. Wait unitl Status Check shows it passed checks. 
 
    https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-launch-instance
@@ -58,7 +58,6 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
 
    Note:
    - Please finish all steps in "Prerequisites". For macOS, you can find "Windows App" instead of RDP client in ACME.
-   - If you use default network settings, security group already allows traffic from 0.0.0.0/0 for port 3389.
    - Follow the steps in "Retrieve the administrator password".
    - Follow the steps in "Connect to your Windows instance".
      - Step 2: open Windows App
@@ -81,7 +80,7 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
    Note:
    - Step 5: Choose Amazon Linux under Quick Start
    - Step 7: Choose your key
-   - Step 8: Under "Network settings" ensure "Allow RDP traffic from" is checked. Change "Anywhere 0.0.0.0/0" to "My IP". 
+   - Step 8: Under "Network settings" ensure "Allow SSH traffic from" is checked. Change "Anywhere" to "My IP". 
    - The launching may take a few minutes. Wait unitl Status Check shows it passed checks. 
 
    https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
