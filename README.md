@@ -40,7 +40,7 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
    - Step 5: Choose Windows under Quick Start
    - Step 7: Choose your key
    - Step 8: Under "Network settings" ensure "Allow RDP traffic from" is checked. Change "Anywhere 0.0.0.0/0" to "My IP". 
-   - The launching may take a few minutes. Wait unitl Status Check shows it passed both checks. 
+   - The launching may take a few minutes. Wait unitl Status Check shows it passed checks. 
 
    https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-launch-instance
 
@@ -63,7 +63,7 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
    - Follow the steps in "Connect to your Windows instance".
      - Step 2: open Windows App
      - Step 3: From menu "Connections", choose "Import from RDP file...". Locate your downloaded RDP file and choose "Import".Then, you shall be able to see your instance showing in Windows App. 
-     - Step 5: Right click on your instance and choose "Connect"
+     - Step 5: Right click on your instance and choose "Connect".
 
    https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-rdp.html
 
@@ -81,8 +81,8 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
    Note:
    - Step 5: Choose Amazon Linux under Quick Start
    - Step 7: Choose your key
-   - Step 8: Keep all default settings
-   - The launching may take a few minutes. Wait unitl Status Check shows it passed both checks. 
+   - Step 8: Under "Network settings" ensure "Allow RDP traffic from" is checked. Change "Anywhere 0.0.0.0/0" to "My IP". 
+   - The launching may take a few minutes. Wait unitl Status Check shows it passed checks. 
 
    https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html
 
