@@ -107,6 +107,12 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
    
    https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-connect-to-instance
 
+   - Hint: If you see the following error:
+     ```
+     Warning: Identity file lab-test-syd.pem not accessible: No such file or directory.
+     ```
+     locate your private key (.pem file) and add the path of your key
+
    **For Windows user:**
 
    Note: Follow section "Connect to your Linux instance from Windows with OpenSSH"
