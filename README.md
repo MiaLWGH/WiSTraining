@@ -103,6 +103,8 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
 
    **For macOS user:**
 
+   Choose "Linux instances":
+   
    https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-connect-to-instance
 
    **For Windows user:**
