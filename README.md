@@ -33,6 +33,62 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
 
 ![Instance lifecycle](https://docs.aws.amazon.com/images/AWSEC2/latest/UserGuide/images/instance_lifecycle.png)
 
+> [!IMPORTANT]
+> A security group acts as a virtual firewall for your EC2 instances to control incoming and outgoing traffic. Inbound rules control the incoming traffic to your instance, and outbound rules control the outgoing traffic from your instance. When you launch an instance, you can specify one or more security groups. By default, it creates a new security group that allows SSH traffic from anywhere (0.0.0.0/0) for a Linux instance or allows RDP traffic from anywhere (0.0.0.0/0) for a Windows instance. If you leave it as default, you may receive an email about security risk soon as we should not leave any resource opening to public (0.0.0.0/0) in our account.
+> 
+> Thus, to avoid this security risk, the best practice is to only allow the traffic from your IP address instead of public. For example, when launching an instance, change "Anywhere" to "My IP" for security group under "Network settings". You will find more information below.
+> 
+> However, there is another issue when you work from office. The automatically detected IP address may not be the correct one! Without the correct IP address, we cannot set up the security group correctly, and you may not be able to connect to your instance. The first step is to help you find your true IP address.
+
+#### Linux short cut to find the true IP address:
+1. Launch a Linux instance from console. Please follow the steps in "Step 1: Launch an instance":
+
+   Note:
+   - Step 5: Choose Amazon Linux under Quick Start
+   - Step 7: Choose your key
+   - Step 8: Under "Network settings" ensure "Allow SSH traffic from" is checked. Change "Anywhere" to "My IP". 
+   - The launching may take a few minutes. Wait unitl Status Check shows it passed checks. 
+
+   https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-launch-instance
+
+   When the instance is ready, can you find the following information? You can take a note of them. 
+   - Instance ID
+   - Public IPv4 DNS
+   - Instance state
+   - Instance type
+   - AMI ID
+   - AMI Name
+   - Security groups
+   - Root device type
+
+2. For a Linux instance, there is a short cut to connect to it by using EC2 Instance Connect: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-connect-tutorial.html#eic-tut1-task4
+
+   Note: Without setting the security group, you will face a connection issue. We need to update the security group to allow SSH traffic from prefix "com.amazonaws.*region*.ec2-instance-connect".
+   
+   (1) Go back to EC2 console and find the security group of your instance.
+   
+   (2) Click on the security group ID, which will lead you to the security group details page.
+   
+   (3) Click on button 'Edit inbound rules'.
+   
+   (4) Click on button 'Add rule'.
+   
+   (5) Choose 'SSH' for 'Type', 'Custom' for 'Source'.
+   
+   (6) In the dropdown list, find a prefix "com.amazonaws.*region*.ec2-instance-connect". Here, the *region* will be the one that you are using. For example, if you are using Sydney region, it should be "com.amazonaws.ap-southeast-2.ec2-instance-connect".
+   
+   (7) Click 'Save rules'.
+   
+   (8) Go back to the documentation and try again, you shall be able to connect to your instance.
+   
+   (9) Run the following command:
+     ```
+     sudo lsof -i tcp:22
+     ```
+     Example output looks like below:
+     
+
+
 #### Windows:
 1. Launch a Windows instance from console. Please follow the steps in "Step 1: Launch an instance":
 
