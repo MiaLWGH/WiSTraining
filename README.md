@@ -182,7 +182,7 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
 2. Connect to your Windows instance:
 
    Note:
-   - Please finish all steps in "Prerequisites". For macOS, you can find "Windows App" instead of RDP client in ACME.
+   - Please finish all steps in "Prerequisites". For macOS, you can find "Microsoft Windows App" instead of RDP client in ACME.
    - Follow the steps in "Retrieve the administrator password".
    - Follow the steps in "Connect to your Windows instance".\
        **Mac user only:**
