@@ -1,5 +1,5 @@
 # WiS - Introduction to IT - LAB
-## Part 1 - EC2 (Updating)
+## Part 1 - EC2 (Updated)
 ### Step 1: Getting Started with the AWS Management Console 
 First of all, let's get familiar with AWS management console.
 Please follow the instrustions in below tutorial:
