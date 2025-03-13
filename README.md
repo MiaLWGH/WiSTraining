@@ -88,7 +88,7 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
 
    https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-linux-inst-from-windows.html
 
-> [!NOTE]
+> [!IMPORTANT]
 > If you see a timed out error, it means the automatically detected IP address is not your true IP address. You need to take the steps in 3 to find your true IP address. Otherwise, you can skip 3.
 
 3. To find your true IP address, we need to temporarily open the security group to public and change it back when we find the correct IP address.
