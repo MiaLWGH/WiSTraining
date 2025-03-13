@@ -1,5 +1,5 @@
 # WiS - Introduction to IT - LAB
-## Part 1 - EC2
+## Part 1 - EC2 (Updating)
 ### Step 1: Getting Started with the AWS Management Console 
 First of all, let's get familiar with AWS management console.
 Please follow the instrustions in below tutorial:
@@ -38,9 +38,9 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
 > 
 > Thus, to avoid this security risk, the best practice is to only allow the traffic from your IP address instead of public. For example, when launching an instance, change "Anywhere" to "My IP" for security group under "Network settings". You will find more information below.
 > 
-> However, there is another issue when you work from office. The automatically detected IP address may not be the correct one! Without the correct IP address, we cannot set up the security group correctly, and you may not be able to connect to your instance. The first step is to help you find your true IP address.
+> However, there is another issue when you work from office. The automatically detected IP address may not be the correct one! Without the correct IP address, we cannot set up the security group correctly, and you may not be able to connect to your instance. The following steps show you how to find your true IP address if the issue occurs.
 
-#### Linux short cut to find the true IP address:
+#### Launch a Linux instance and find the true IP address if needed:
 1. Launch a Linux instance from console. Please follow the steps in "Step 1: Launch an instance":
 
    Note:
@@ -61,7 +61,82 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
    - Security groups
    - Root device type
 
-2. For a Linux instance, there is a short cut to connect to it by using EC2 Instance Connect: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-connect-tutorial.html#eic-tut1-task4
+2. Connect to your Linux instance. 
+
+   Read through the following documentation and make sure to set the permissions of your private key correctly:
+   
+   https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-to-linux-instance.html
+
+   **For macOS user:**
+
+   Choose "Linux instances":
+   
+   https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-connect-to-instance
+
+   - Hint: If you see the following error:
+     ```
+     Warning: Identity file key-pair-name.pem not accessible: No such file or directory.
+     ```
+     locate your private key (.pem file) and add the path of your key into the SSH command like below:
+     ```
+     ssh -i /path/key-pair-name.pem instance-user-name@instance-public-dns-name
+     ```
+
+   **For Windows user:**
+
+   Note: Follow section "Connect to your Linux instance from Windows with OpenSSH"
+
+   https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-linux-inst-from-windows.html
+
+> [!NOTE]
+> If you see a timed out error, it means the automatically detected IP address is not your true IP address. You need to take the steps in 3 to find your true IP address. Otherwise, you can skip 3.
+
+3. To find your true IP address, we need to temporarily open the security group to public and change it back when we find the correct IP address.
+
+   (1) Go back to EC2 console and find the security group of your instance.
+   
+   (2) Click on the security group ID, which will lead you to the security group details page.
+   
+   (3) Click on button 'Edit inbound rules'.
+   
+   (4) Click on button 'Add rule'.
+   
+   (5) Choose 'SSH' for 'Type', 'Anywhere-IPv4' for 'Source'. It will automatically fill in 0.0.0.0/0. 
+   
+   (6) Click 'Save rules'.
+   
+   (7) Try to SSH to your instance again, you shall be able to connect to your instance now.
+   
+   (8) Run the following command:
+      ```
+      sudo lsof -i tcp:22 | grep ec2-user
+      ```
+      Example output looks like below:
+      ```
+      [ec2-user@ip-172-31-41-45 ~]$ sudo lsof -i tcp:22 | grep ec2-user
+      sshd    3473 ec2-user    4u  IPv4  30756      0t0  TCP ip-172-31-41-45.ap-southeast-2.compute.internal:ssh->202-67-70-223.sta.dodo.net.au:59829 (ESTABLISHED)
+      ```
+      My true IP address can be found at the end of the line, which is 202.67.70.223.
+   
+   (9) You can leave your instance by typing "exit".
+
+   (10) Go back to your security group and edit the rule you just added. Change 'Anywhere-IPv4' to 'Custom' followed by your IP address with "/32" at the end. For example, I would type in "202.67.70.223/32".
+
+   (11) Try to SSH to your instance again, you shall be able to connect to it without opening security group to the public.
+
+> [!TIP]
+> Take a note of your true IP address! You will use it again!
+
+4. Stop and Start your Linux instance. Please follow the steps in "Manually stop and start your instances":
+   
+   https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html
+
+   Questions:
+   - Do you know how to reboot the instance?
+   - After stop and start operations, can you still connect to the instance? Is there anything changed? How to reconnect?
+      - Hint: pay attention to the "Public IPv4 DNS".
+
+5. For a Linux instance, there is a short cut to connect to it by using EC2 Instance Connect: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-connect-tutorial.html#eic-tut1-task4
 
    Note: Without setting the security group, you will face a connection issue. We need to update the security group to allow SSH traffic from prefix "com.amazonaws.*region*.ec2-instance-connect".
    
@@ -79,15 +154,9 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
    
    (7) Click 'Save rules'.
    
-   (8) Go back to the documentation and try again, you shall be able to connect to your instance.
-   
-   (9) Run the following command:
-     ```
-     sudo lsof -i tcp:22
-     ```
-     Example output looks like below:
-     
+   (8) Go back to the documentation and try again, you shall be able to connect to your instance via EC2 Instance Connect.
 
+6. Terminate your Linux instance.
 
 #### Windows:
 1. Launch a Windows instance from console. Please follow the steps in "Step 1: Launch an instance":
@@ -95,7 +164,7 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
    Note:
    - Step 5: Choose Windows under Quick Start
    - Step 7: Choose your key
-   - Step 8: Under "Network settings" ensure "Allow RDP traffic from" is checked. Change "Anywhere" to "My IP". 
+   - Step 8: Under "Network settings" ensure "Allow RDP traffic from" is checked. Change "Anywhere" to "Costom" and type in your true IP address, or choose "My IP" if you did not face the IP address issue. Another option is to choose "Select existing security group" and find the one you used in previous step.  
    - The launching may take a few minutes. Wait unitl Status Check shows it passed checks. 
 
    https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-launch-instance
@@ -128,72 +197,8 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
 
    Do you know how to reboot the instance?
    
-5. Terminate your Windows instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html
-
-#### Linux:
-1. Launch a Linux instance from console. Please follow the steps in "Step 1: Launch an instance":
-
-   Note:
-   - Step 5: Choose Amazon Linux under Quick Start
-   - Step 7: Choose your key
-   - Step 8: Under "Network settings" ensure "Allow SSH traffic from" is checked. Change "Anywhere" to "My IP". 
-   - The launching may take a few minutes. Wait unitl Status Check shows it passed checks. 
-
-   https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-launch-instance
-
-   When the instance is ready, can you find the following information? You can take a note of them. 
-   - Instance ID
-   - Public IPv4 DNS
-   - Instance state
-   - Instance type
-   - AMI ID
-   - AMI Name
-   - Security groups
-   - Root device type
-   
-2. Connect to your Linux instance. 
-
-   Read through the following documentation and make sure to set the permissions of your private key correctly:
-   
-   https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-to-linux-instance.html
-
-   **For macOS user:**
-
-   Choose "Linux instances":
-   
-   https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html#ec2-connect-to-instance
-
-   - Hint: If you see the following error:
-     ```
-     Warning: Identity file lab-test-syd.pem not accessible: No such file or directory.
-     ```
-     locate your private key (.pem file) and add the path of your key into the SSH command like below:
-     ```
-     ssh -i /path/key-pair-name.pem instance-user-name@instance-public-dns-name
-     ```
-
-   **For Windows user:**
-
-   Note: Follow section "Connect to your Linux instance from Windows with OpenSSH"
-
-   https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-linux-inst-from-windows.html
-
-4. Reboot, Stop and Start your Linux instance.
-
-   Questions:
-   - After stop and start operations, can you still connect to the instance? Is there anything changed? How to reconnect?
-      - Hint: pay attention to the "Public IPv4 DNS".
-
-5. For Linux instance, there is a short cut to connect to it by using EC2 Instance Connect: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-connect-tutorial.html#eic-tut1-task4
-
-   Note:
-   - If you are facing a connection issue, you need to update the security group to allow SSH traffic from prefix "com.amazonaws.*region*.ec2-instance-connect" (replace region by ap-southeast-2 if you are using Sydney region).
-   - Please check "Task 2: Allow inbound traffic from the EC2 Instance Connect service to your instance" on the same page for more information.
-   - Instead of creating a new security group, you can find the existing one and "Edit inbound rules". Choose "Add rule" --> Type: SSH --> Source: Custom --> Prefix: com.amazonaws.*region*.ec2-instance-connect
-   - After editting the security group, the EC2 Instance Connect shall work. 
-
-7. Terminate your Linux instance.
-   
+4. Terminate your Windows instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html
+  
 ### Step 4: Launch an EC2 instance from AWS Systems Manager
 There are many approaches to launch an EC2 instance and work on it. In this step, you will launch an EC2 instance from AWS Systems Manager. 
 Please follow the instructions in below tutorial:
