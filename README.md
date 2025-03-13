@@ -107,7 +107,7 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
    
    (7) Try to SSH to your instance again, you shall be able to connect to your instance now.
    
-   (8) Run the following command:
+   (8) After connecting to your instance, run the following command on your instance:
       ```
       sudo lsof -i tcp:22 | grep ec2-user
       ```
