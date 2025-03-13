@@ -156,7 +156,7 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
    
    (8) Go back to the documentation and try again, you shall be able to connect to your instance via EC2 Instance Connect.
 
-6. Terminate your Linux instance.
+6. Terminate your Linux instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html.
 
 #### Windows:
 1. Launch a Windows instance from console. Please follow the steps in "Step 1: Launch an instance":
@@ -184,20 +184,17 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
    Note:
    - Please finish all steps in "Prerequisites". For macOS, you can find "Windows App" instead of RDP client in ACME.
    - Follow the steps in "Retrieve the administrator password".
-   - Follow the steps in "Connect to your Windows instance".
+   - Follow the steps in "Connect to your Windows instance".\
+       **Mac user only:**
      - Step 2: open Windows App
      - Step 3: From menu "Connections", choose "Import from RDP file...". Locate your downloaded RDP file and choose "Import".Then, you shall be able to see your instance showing in Windows App. 
      - Step 5: Right click on your instance and choose "Connect".
 
    https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-rdp.html
 
-3. Stop, Start and Reboot your Windows instance. Please follow the steps in "Manually stop and start your instances":
+3. Stop, Start and Reboot your Windows instance.
    
-   https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html
-
-   Do you know how to reboot the instance?
-   
-4. Terminate your Windows instance: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html
+4. Terminate your Windows instance.
   
 ### Step 4: Launch an EC2 instance from AWS Systems Manager
 There are many approaches to launch an EC2 instance and work on it. In this step, you will launch an EC2 instance from AWS Systems Manager. 
@@ -300,11 +297,11 @@ chown -R $USER /var/www/html
 echo "<h1>Hello World</h1>" > /var/www/html/index.html
 ```
 
-5. Next, we need to make a change to the security group to allow the HTTP traffic from your laptop to go to the instance via port 80. A security group acts as a virtual firewall for your EC2 instances to control incoming and outgoing traffic. Go back to EC2 console and find the security group of your instance.
+5. Next, we need to make a change to the security group to allow the HTTP traffic from your laptop to go to the instance via port 80. Go back to EC2 console and find the security group of your instance.
    - Click on the security group ID, which will lead you to the security group details page.
    - Click on button 'Edit inbound rules'.
    - Click on button 'Add rule'.
-   - Choose 'HTTP' for 'Type', 'Anywhere-IPv4' for 'Source'.
+   - Choose 'HTTP' for 'Type', 'Custom' for 'Source' and type your true IP address with "/32" at the end, or you can choose "My IP" if it works. 
    - Click 'Save rules'. 
 
 6. Copy the 'Public IPv4 DNS' of your instance, and type `http://Public-IPv4-DNS-of-your-instance` in your broswer. You shall be able to see:
@@ -352,6 +349,8 @@ echo "<h1>Hello World</h1>" > /var/www/html/index.html
 
    ![screenshot](https://github.com/MiaLWGH/WiSTraining/blob/main/Screenshot%202024-07-25%20at%2021-23-35%20.png?raw=true)
 
+   (5) Edit the index.html file again and build your own website!
+   
 **Show us your creative website! Have fun!**
 
 References:
