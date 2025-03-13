@@ -26,8 +26,8 @@ To connect to an EC2 instance, you need a key pair. In this step, you will use E
    aws ec2 describe-key-pairs
    ```
 
-### Step 3: Launch an EC2 instance 
-Now, you are ready to launch your first EC2 instance. In this step, you will explore the lifecycle of an EC2 instance and try to connect to it. You will practice with both Windows and Linux instances.
+### Step 3: Launch an EC2 instance (Linux and Windows)
+Now, you are ready to launch your first EC2 instance. In this step, you will explore the lifecycle of an EC2 instance and try to connect to it. You will practice with both Linux and Windows instances.
 
 ![EC2](https://docs.aws.amazon.com/images/AWSEC2/latest/UserGuide/images/get-started-diagram.png)
 
