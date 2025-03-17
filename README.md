@@ -368,7 +368,7 @@ References:
 
 In this part of the lab, we are going to launch two EC2 instances into the same VPC with Linux, and get familiar with some useful networking commands.
 
-### Step 0: Get to know your default VPC
+### Step 1: Get to know your default VPC
 
 1. First of all, let's get to know how VPC works. Please read through the following documentation:
 
@@ -384,13 +384,15 @@ In this part of the lab, we are going to launch two EC2 instances into the same 
    - What is the difference in their IPv4 CIDR?
    - Can you find the route table? What are the routes?
 
-### Step 1: Launch two EC2 instances in your default VPC
+### Step 2: Launch two EC2 instances in your default VPC
 
-1. Launch two Linux instances in your default VPC (You do not need to change anything in network settings, just pay attention to the VPC ID). Please name your instances with "server1" and "server2". Make sure to select your key pair. 
+1. Launch two Linux instances in your default VPC.
+   - If you forget how to launch an EC2 instance, please refer to Part 1 - Step 3 - Linux part.
+   - Please name your instances with "server1" and "server2".
+   - Make sure to select your key pair.
+   - Under 'Network settings', please pay attention to your VPC ID. Select 'Create security group'. Besides 'Allow SSH traffic from', choose 'My IP'. If you are facing the connection timed out issue, please refer to Part 1 - Step 3 - Linux part - number 3 to find your real public IP. Another option is to use a CIDR. 
 
-   If you forget how to launch an EC2 instance, please refer to Step 3 in Part 1.
-
-   Note: By default, a new security group will be created when you launch a new instance. So your two instances should have different security groups. 
+   Note: Your two instances should have different security groups. 
 
 3. Open two terminals on your laptop and SSH to both instances. 
 
