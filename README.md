@@ -163,6 +163,7 @@ Now, you are ready to launch your first EC2 instance. In this step, you will exp
 
    Note:
    - Step 5: Choose Windows under Quick Start
+   - Step 6: For instance type, choose *t3.medium*
    - Step 7: Choose your key
    - Step 8: Under "Network settings" ensure "Allow RDP traffic from" is checked. Change "Anywhere" to "Costom" and type in your true IP address, or choose "My IP" if you did not face the IP address issue. Another option is to choose "Select existing security group" and find the one you used in previous step.  
    - The launching may take a few minutes. Wait unitl Status Check shows it passed checks. 
