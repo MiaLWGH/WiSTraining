@@ -392,7 +392,7 @@ In this part of the lab, we are going to launch two EC2 instances into the same 
    - Make sure to select your key pair.
    - Under 'Network settings', please pay attention to your VPC ID. Select 'Create security group'. Besides 'Allow SSH traffic from', choose 'My IP'. If you are facing the connection timed out issue, please refer to Part 1 - Step 3 - Linux part - number 3 to find your real public IP. Another option is to use a CIDR. 
 
-   Note: Your two instances should have different security groups. 
+   Note: Your two instances should have different security groups. Please take a note of your security group IDs, private IP addresses. 
 
 3. Open two terminals on your laptop and SSH to both instances. 
 
@@ -419,22 +419,38 @@ In this part of the lab, we are going to launch two EC2 instances into the same 
    ```
    ping -c 5 172.31.0.41
    ```
-   You need to replace the IP address by the IP address of your server2. The '-c 5' means 5 counts of results. Can you do the same on server2 to ping server1?
+   Note: You need to replace the IP address by the IP address of your server2. The '-c 5' means 5 counts of results.
 
-3. As the subnets are public subnets, you can also ping a website directly. On either of your server, run command `ping google.com -c 5`. Do you see any difference in the results?
+   Does it work? Can you find out why?
 
-4. Nslookup (stands for “Name Server Lookup”) is a useful command for getting information from the DNS server. You can find the IP address of 'google.com' using command:
+> [!TIP]
+> Ping operates by means of ICMP packets. To ensure the "ping" commmand to work, security group of server2 needs to allow the ICMP traffic from the server1 to come in.
+
+   Solution: Modify the security group of server2 to allow the ICMP traffic from the server1 to come in:
+      - Click on the security group ID of server2, which will lead you to the security group details page.
+      - Click on button 'Edit inbound rules'.
+      - Click on button 'Add rule'.
+      - Choose 'Custom ICMP - IPv4' for 'Type', 'Custom' for 'Source' and type the private IP address of server1 with '/32' at the end.
+      - Click 'Save rules'. 
+
+   Does it work now? 
+   
+   Can you do the same on server2 to ping server1?
+
+4. As the subnets are public subnets, you can also ping a website directly. On either of your server, run command `ping google.com -c 5`. Do you see any difference in the results?
+
+5. Nslookup (stands for “Name Server Lookup”) is a useful command for getting information from the DNS server. You can find the IP address of 'google.com' using command:
    ```
    nslookup google.com
    ```
    You shall be able to find the IP address under 'Non-authoritative answer:'.
 
-5. Nslookup can also perform a reverse DNS lookup. Try the command with the IP address of your server2. For example:
+6. Nslookup can also perform a reverse DNS lookup. Try the command with the IP address of your server2. For example:
    ```
    nslookup 172.31.0.41
    ```
 
-6. In networking, understanding the path that data packets take from one point to another is crucial for diagnosing and troubleshooting connectivity issues. Traceroute is a command-line tool used in Linux to track the path that data takes from your computer to a specified destination. It shows you each "hop" that the data packet makes along its journey. This includes the different servers or devices it passes through, and how long each step takes. Try command:
+7. In networking, understanding the path that data packets take from one point to another is crucial for diagnosing and troubleshooting connectivity issues. Traceroute is a command-line tool used in Linux to track the path that data takes from your computer to a specified destination. It shows you each "hop" that the data packet makes along its journey. This includes the different servers or devices it passes through, and how long each step takes. Try command:
    ```
    traceroute google.com
    ```
