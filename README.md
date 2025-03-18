@@ -394,9 +394,9 @@ In this part of the lab, we are going to launch two EC2 instances into the same 
 
    Note: Your two instances should have different security groups. Please take a note of your security group IDs, private IP addresses. 
 
-3. Open two terminals on your laptop and SSH to both instances. 
+2. Open two terminals on your laptop and SSH to both instances. 
 
-### Step 2: Check hostname and test reachability
+### Step 3: Check hostname and test reachability
 
 1. Print the instance IP address using the command `hostname -I` on both instances. For example, I have the following IPs:
    ```
@@ -437,22 +437,22 @@ In this part of the lab, we are going to launch two EC2 instances into the same 
    
    Can you do the same on server2 to ping server1?
 
-4. As the subnets are public subnets, you can also ping a website directly. On either of your server, run command `ping google.com -c 5`. Do you see any difference in the results?
+3. As the subnets are public subnets, you can also ping a website directly. On either of your server, run command `ping google.com -c 5`. Do you see any difference in the results?
 
-5. Nslookup (stands for “Name Server Lookup”) is a useful command for getting information from the DNS server. You can find the IP address of 'google.com' using command:
+4. Nslookup (stands for “Name Server Lookup”) is a useful command for getting information from the DNS server. You can find the IP address of 'google.com' using command:
    ```
    nslookup google.com
    ```
    You shall be able to find the IP address under 'Non-authoritative answer:'.
 
-6. Nslookup can also perform a reverse DNS lookup. Try the command with the IP address of your server2. For example:
+5. Nslookup can also perform a reverse DNS lookup. Try the command with the IP address of your server2. For example:
    ```
    nslookup 172.31.0.41
    ```
    
    Can you see the private IP DNS name of your server2?
 
-7. In networking, understanding the path that data packets take from one point to another is crucial for diagnosing and troubleshooting connectivity issues. Traceroute is a command-line tool used in Linux to track the path that data takes from your computer to a specified destination. It shows you each "hop" that the data packet makes along its journey. This includes the different servers or devices it passes through, and how long each step takes. Try command:
+6. In networking, understanding the path that data packets take from one point to another is crucial for diagnosing and troubleshooting connectivity issues. Traceroute is a command-line tool used in Linux to track the path that data takes from your computer to a specified destination. It shows you each "hop" that the data packet makes along its journey. This includes the different servers or devices it passes through, and how long each step takes. Try command:
    ```
    traceroute google.com
    ```
@@ -464,10 +464,12 @@ In this part of the lab, we are going to launch two EC2 instances into the same 
 
    Try to copy the IP addresses in the last 5 hops from the traceroute result and paste into above website to see the IP address data. Can you find at which hop the packet left Amazon network and went into Google network?
 
-### Step 3: Telnet and Packet Capture
+### Step 4: Telnet and Packet Capture
 In this step, we are going to use 'telnet' command to check if port 22 (SSH) is responsive at the other machine. At the same time, we will use 'tcpdump' command to capture the packets, which will reveal more secrets in networking. 
 
-1. Install telnet on both instances:
+1. Modify both security groups to allow the SSH traffic from the other server to come in. If you are not sure how to do that, refer to Step 3.2 but choose 'SSH' for the 'Type'.
+
+2. Install telnet on both instances:
    ```
    sudo yum install telnet -y
    ```
