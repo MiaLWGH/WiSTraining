@@ -426,12 +426,12 @@ In this part of the lab, we are going to launch two EC2 instances into the same 
 > [!TIP]
 > Ping operates by means of ICMP packets. To ensure the "ping" commmand to work, security group of server2 needs to allow the ICMP traffic from the server1 to come in.
 
-   Solution: Modify the security group of server2 to allow the ICMP traffic from the server1 to come in:
-      - Click on the security group ID of server2, which will lead you to the security group details page.
-      - Click on button 'Edit inbound rules'.
-      - Click on button 'Add rule'.
-      - Choose 'Custom ICMP - IPv4' for 'Type', 'Custom' for 'Source' and type the private IP address of server1 with '/32' at the end.
-      - Click 'Save rules'. 
+> Solution: Modify the security group of server2 to allow the ICMP traffic from the server1 to come in:
+>   - Click on the security group ID of server2, which will lead you to the security group details page.
+>   - Click on button 'Edit inbound rules'.
+>   - Click on button 'Add rule'.
+>   - Choose 'Custom ICMP - IPv4' for 'Type', 'Custom' for 'Source' and type the private IP address of server1 with '/32' at the end.
+>   - Click 'Save rules'.
 
    Does it work now? 
    
