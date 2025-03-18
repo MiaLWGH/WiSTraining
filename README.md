@@ -547,7 +547,7 @@ In this step, we will try to SSH from server1 to server2.
 
    Reference:
 
-   https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/connect-linux-inst-ssh.html#linux-file-transfer-scp
+   https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/linux-file-transfer-scp.html
 
 3. SSH to server1 and ensure the private key is copied successfully using the command `ls`.
 
