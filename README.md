@@ -360,6 +360,12 @@ References:
 
 [2] https://www.w3schools.com/html/html_basic.asp
 
+### Challenges: 
+
+1. Try to upload a picture from your laptop to your EC2 instance by using SCP commamd, then edit your HTML file to use the image locally. 
+
+2. Try to create a custom AMI from your webserver, then launch a new EC2 instance using the custom AMI to build an identical webserver. 
+
 > [!NOTE]
 > After you finish all above steps, please terminate your instance.
 
