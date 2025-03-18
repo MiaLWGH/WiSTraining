@@ -537,7 +537,7 @@ In this step, we are going to use 'telnet' command to check if port 22 (SSH) is 
 
    Don't worry if you cannot understand the contents now. All you need to know here is the two instances are sending packets to each other to establish a reliable connection between them. This process is called "Three way handshake", which will be covered in later network training. 
 
-### Step 4: SSH from one instance to another
+### Step 5: SSH from one instance to another
 In this step, we will try to SSH from server1 to server2. 
 
 1. Transfer your private key file to server1 by running the following 'scp' command on your laptop:
@@ -559,7 +559,7 @@ In this step, we will try to SSH from server1 to server2.
 
 5. (Option) Can you try to capture packets when you SSH from server1 to server2?
 
-### Step 5: Modify the security group
+### Step 6: Modify the security group
 In previous steps, we have modifed security groups several times by adding CIDRs. Instead of using an accurate CIDR, we can use security groups as the source in a security group inbound rule. 
 
 1. In each security group, delete the two rules that you added in Step 3 and Step 4 to allow SSH and ICMP traffic from the other server to come in.
