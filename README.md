@@ -578,7 +578,7 @@ Reference:
 
 ### Challenge:
 
-From your server1, are you able to ping a teammate's server2? 
+From your server1, are you able to ping a teammate's server2? Which IP address will you use? Work together to make it! :handshake:
 
 > [!NOTE]
 > After you finish all above steps, please terminate your instances. DO NOT delete your default VPC. 
