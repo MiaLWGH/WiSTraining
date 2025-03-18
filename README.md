@@ -449,6 +449,8 @@ In this part of the lab, we are going to launch two EC2 instances into the same 
    ```
    nslookup 172.31.0.41
    ```
+   
+   Can you see the private IP DNS name of your server2?
 
 7. In networking, understanding the path that data packets take from one point to another is crucial for diagnosing and troubleshooting connectivity issues. Traceroute is a command-line tool used in Linux to track the path that data takes from your computer to a specified destination. It shows you each "hop" that the data packet makes along its journey. This includes the different servers or devices it passes through, and how long each step takes. Try command:
    ```
