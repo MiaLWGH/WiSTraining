@@ -404,7 +404,7 @@ In this part of the lab, we are going to launch two EC2 instances into the same 
 
 3. Open two terminals on your laptop and SSH to both instances. 
 
-### Step 3: Check hostname and test reachability
+### Step 3: Check private IP address and test reachability
 
 1. Print the instance IP address using the command `hostname -I` on both instances. For example, I have the following IPs:
    ```
