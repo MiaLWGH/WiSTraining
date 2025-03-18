@@ -438,7 +438,7 @@ In this part of the lab, we are going to launch two EC2 instances into the same 
 >   - Click on the security group ID of server2, which will lead you to the security group details page.
 >   - Click on button 'Edit inbound rules'.
 >   - Click on button 'Add rule'.
->   - Choose 'Custom ICMP - IPv4' for 'Type', 'Custom' for 'Source' and type the private IP address of server1 with '/32' at the end.
+>   - Choose 'All ICMP - IPv4' for 'Type', 'Custom' for 'Source' and type the private IP address of server1 with '/32' at the end.
 >   - Click 'Save rules'.
 
    Does it work now? 
