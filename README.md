@@ -419,7 +419,7 @@ In this part of the lab, we are going to launch two EC2 instances into the same 
    ```
    ping -c 5 172.31.0.41
    ```
-   Note: You need to replace the IP address by the IP address of your server2. The '-c 5' means 5 counts of results.
+   Note: You need to replace the IP address in the command by the IP address of your server2. The '-c 5' means 5 counts of results.
 
    Does it work? Can you find out why?
 
