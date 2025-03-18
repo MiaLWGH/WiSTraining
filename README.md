@@ -390,11 +390,13 @@ In this part of the lab, we are going to launch two EC2 instances into the same 
    - If you forget how to launch an EC2 instance, please refer to Part 1 - Step 3 - Linux part.
    - Please name your instances with "server1" and "server2".
    - Make sure to select your key pair.
-   - Under 'Network settings', please pay attention to your VPC ID. Select 'Create security group'. Besides 'Allow SSH traffic from', choose 'My IP'. If you are facing the connection timed out issue, please refer to Part 1 - Step 3 - Linux part - number 3 to find your real public IP. Another option is to use a CIDR. 
+   - Under 'Network settings', please pay attention to your VPC ID. Select 'Create security group'. Besides 'Allow SSH traffic from', choose 'My IP'.
+>[!NOTE]
+>Instead of repeating the steps in Step 3 in Part 1, you can change the automatically detected IP (CIDR with /32 means one IP address in the CIDR) in the security group to a large CIDR. For example, if the auto filled CIDR is 15.248.10.123/32, you can change it to 15.248.0.0/16. 
 
-   Note: Your two instances should have different security groups. Please take a note of your security group IDs, private IP addresses. 
+2. Your two instances should have different security groups. Please take a note of your security group IDs, private IP addresses. 
 
-2. Open two terminals on your laptop and SSH to both instances. 
+3. Open two terminals on your laptop and SSH to both instances. 
 
 ### Step 3: Check hostname and test reachability
 
